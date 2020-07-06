@@ -191,7 +191,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HashMap,红黑树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HashMap，红黑树</a>
         		</li>
       		
 		</ul>
@@ -202,6 +202,103 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-浅谈RabbitMQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/">浅谈RabbitMQ</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/" class="archive-article-date">
+  	<time datetime="2020-07-01T08:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>什么是消息中间件</strong>？</p>
+<p>    消息中间件利用高效可靠的消息传递机制进行平台无关的数据交流，并基于数据通信来进行 分布式系统 的集成。通过提供消息传递和消息排队模型，它可以在分布式环境下扩展进程间的通信</p>
+<p><strong>消息中间件引出产生背景</strong></p>
+<p><strong>一、系统之间接口耦合比较严重<br>系统之间直接调用实际工程落地和存在问题</strong><br>    微服务架构后，链式调用是我们在写程序时候的一般流程，为了完成一个整体功能会将其拆分成多个函数（或子模块），比如模块 A 调用模块 B，模块 B 调用模块 C，模块 C 调用模块 D。但在大型分布式应用中，系统间的 RPC 交互繁杂，一个功能背后要调用上百个接口并非不可能，从单机架构过渡到分布式服务架构的通例，这种架构会有哪些问题？</p>
+<p><strong>系统之间接口耦合比较严重</strong><br>每新增一个下游功能，都要对上有相关接口进行改造；</p>
+<p>举个例子：假如系统 A 要发送数据给系统 B 和 C，发送给每个系统的数据可能有差异，因此系统 A 对要发送给每个系统的数据进行了组装，然后逐一发送；</p>
+<p>当代码上线后又新增了一个需求：</p>
+<p>把数据也发送给 D，新上了一个 D 系统也要接受 A 系统的数据，此时需要修改 A 系统，让它感知到 D 的存在，同时把数据处理好 A 再给 D。在这个过程中你会发现，每接入一个下游系统，都要对 A 系统进行代码改造，开发联调的效率很低。其整体架构如下图<br><img src="https://img-blog.csdnimg.cn/2020050220071784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>二、面对大流量并发时，容易被冲垮</strong></p>
+<p>每个接口模块的吞吐量能力是有限的，这个上限能力如果堤坝，当大流量（洪水）来临时，容易被冲垮</p>
+<p>举个例子秒杀业务：</p>
+<p>上游系统发起下单购买操作，就是下单一个操作</p>
+<p>下游系统完成秒杀业务逻辑<br>（读取订单、库存检查、库存冻结、余额检查、余额冻结、订单生成、余额扣减、库存扣减、生成流水、余额解冻、库存解冻）</p>
+<p><strong>三、等待同步存在性能问题</strong></p>
+<p>RPC 接口基本上是 同步调用，整体服务性能遵循 “木桶理论”，即 整体系统的耗时取决于链路中 最慢的 那个接口</p>
+<p>比如 A 调用 B/C/D 都是 50ms，但此时 B 又调用了 B1，花费 2000 ms，那么直接就拖累了整个服务性能<br><img src="https://img-blog.csdnimg.cn/20200502201540243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>如何解决？</strong><br>要做到系统解耦，当新的模块接进来时，可以做到代码改动最小；<strong>能够解耦</strong><br>设置流量缓冲池，可以让后端系统按照自身吞吐能力进行消费，不被冲垮；<strong>能够削峰</strong><br>强弱依赖梳理能将非关键调用链路的操作异步化并提升整体系统的吞吐能力；<strong>能够异步</strong><br><strong>消息中间件的定义</strong><br>面向消息的中间件（Message-Oriented Middleware）MOM 能够很好的解决以上问题</p>
+<p>    是指利用高效可靠的消息传递机制进行平台无关的数据交流，并基于数据通信来进行分布式系统的集成。通过提供 消息传递 和 消息排队 模型在分布式环境下提供应用解耦、弹性伸缩、冗余存储、流量削峰、异步通信、数据同步等功能</p>
+<p>大致的过程是这样的：</p>
+<p>    发送者把消息发送给消息服务器，消息服务器将消息存放在若干个 队列 / 主题 中，在合适的时候，消息服务器会将消息转发给接收者。在这个过程中，发送和接收是异步的，也就是发送无需等待，而且发送者和接收者的生命周期也没有必然关系；尤其在发布 pub / 订阅 sub 模式下，也可以完成一对多的通信，即让一个消息有多个接收者<br>    <img src="https://img-blog.csdnimg.cn/20200502204037754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>特点</strong><br><strong>采用异步处理模式</strong><br>    消息发送者可以发送一个消息而无须等待响应。消息发送者将消息发送到一条虚拟的通道（主题或队列上）；消息接收者则订阅或监听该通道。一条信息可能最终转发给一个或者多个消息接收者，这些接收者都无需对消息发送者做出同步回应，整个过程都是异步的</p>
+<p>案例：<br>    也就是说，一个系统跟另一个系统之间进行通信的时候，假如系统 A 希望发送一个消息给系统 B，让它去处理<br>    但是系统 A 不关注系统 B 到底怎么处理或者有没有处理好，所以系统 A 把消息发送给 MQ，然后就不管这条消息了，接着系统 B 从 MQ 里消费出来处理即可。至于怎么处理，是否处理完毕，什么时候处理，都是系统 B 的事，与系统 A 无关<br>    <img src="https://img-blog.csdnimg.cn/20200502204637922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br>    这样的一种通信方式，就是所谓的 “异步” 通信方式对于系统 A 来说，只要把消息发送给 MQ，然后系统 B 就会异步的去进行处理了，系统 A 不需要 “同步” 的等待系统 B 处理完。这样的好处是什么呢？两个字：<strong>解耦</strong></p>
+<p><strong>应用场景</strong><br>1、任务异步处理</p>
+<p>将不需要同步处理的并且耗时长的操作由队列通知消息接收方进行异步处理，提高了应用程序的响应时间<br>2、应用程序解耦合</p>
+<p>MQ 相当于一个中介，生产方通过 MQ 与消费方进行交互，它将应用程序进行解耦合<br><strong>市场上还有哪些 MQ？</strong><br>ActiveMQ、RabbitMQ、ZeroMQ、Kafka、MetaMQ、RocketMQ、Redis</p>
+<p><strong>为什么使用 RabbitMQ？</strong><br>使用简单，功能强大<br>基于 AMQP 协议<br>社区活跃，文档完善<br>高并发性能好，这主要得益于 Erlang 语言<br>SpringBoot 默认已集成 RabbitMQ<br><strong>RabbitMQ 的工作原理</strong><br><img src="https://img-blog.csdnimg.cn/20200526143121783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br>组成部分说明如下：<br>Broker：消息队列服务进程，此进程包括两个部分：Exchange 和 Queue<br>Exchange：消息队列交换机，按一定的规则将消息路由转发到某个队列，对消息进行过滤<br>Queue：消息队列，存储消息的队列，消息到达队列并转发给指定的消费方<br>Producer：消息生产者，即生产方客户端，生产方客户端将消费发送到 MQ<br>Consumer：消息消费者，即消费方客户端，接收 MQ 妆发的消息</p>
+<p><strong>消息发布接收流程<br>发送消息</strong><br>1、生产者和 Broker 建立 TCP 连接<br>2、生产者和 Broker 建立通道<br>3、生产者通过通道消息发送 Broker，由 Exchange 将消息进行转发<br>4、Exchange 将消息转发到指定的 Queue（队列）<br><strong>接收消息</strong><br>1、消费者和 Broker 建立 TCP 连接<br>2、消费者和 Broker 建立通道<br>3、消费者监听指定的 Queue（队列）<br>4、当有消息到达 Queue 时 Broker 默认将消息推送给消费者<br>5、消费者接收到消息</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">消息中间件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/">展开全文 >></a>
         </p>
       
 
@@ -320,7 +417,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HashMap,红黑树</a>
+                <a href="javascript:void(0)" class="js-tag color1">消息中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">HashMap，红黑树</a>
               </li>
             
             <div class="clearfix"></div>
