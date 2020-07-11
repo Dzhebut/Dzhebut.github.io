@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dzhebut.github.io">
-  <title>Archives: 2020/7 | Hexo</title>
+  <title>Linux下查看CPU、内存、磁盘使用情况 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://dzhebut.github.io/archives/2020/07/index.html">
+  <meta name="description" content="一、查看CPU使用率 top命令 top：time of process,查看系统当前的运行情况，查看CPU、内存、运行时间、交换分区、执行的线程等信息。 top命令是linux下常用的性能分析工具，能够实时的显示系统中各个进程中资源占用情况，类似Windows中的资源管理器。 参数详解： 123456789101112131415     %us：表示用户空间程序的cpu使用率     %sy：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下查看CPU、内存、磁盘使用情况">
+<meta property="og:url" content="https://dzhebut.github.io/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、查看CPU使用率 top命令 top：time of process,查看系统当前的运行情况，查看CPU、内存、运行时间、交换分区、执行的线程等信息。 top命令是linux下常用的性能分析工具，能够实时的显示系统中各个进程中资源占用情况，类似Windows中的资源管理器。 参数详解： 123456789101112131415     %us：表示用户空间程序的cpu使用率     %sy：">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-11T09:35:06.000Z">
+<meta property="article:modified_time" content="2020-07-11T09:37:41.196Z">
 <meta property="article:author" content="Joey Du">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,36 +157,80 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux下查看CPU、内存、磁盘使用情况" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" class="archive-article-date">
-  	<time datetime="2020-07-11T09:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux下查看CPU、内存、磁盘使用情况</a>
+    <h1 class="article-title" itemprop="name">
+      Linux下查看CPU、内存、磁盘使用情况
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" class="archive-article-date">
+  	<time datetime="2020-07-11T09:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、查看CPU使用率</strong></p>
+<p>top命令</p>
+<p>top：time of process,查看系统当前的运行情况，查看CPU、内存、运行时间、交换分区、执行的线程等信息。</p>
+<p>top命令是linux下常用的性能分析工具，能够实时的显示系统中各个进程中资源占用情况，类似Windows中的资源管理器。</p>
+<p>参数详解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">     %us：表示用户空间程序的cpu使用率</span><br><span class="line"></span><br><span class="line">     %sy：表示系统空间的cpu使用率，主要是内核程序。</span><br><span class="line"></span><br><span class="line">     %ni：表示用户通过nice调度过的程序的cpu使用率。</span><br><span class="line"></span><br><span class="line">     %id：cpu空闲率，例：<span class="number">92</span>id，表示系统cpu使用率为<span class="number">100</span>%<span class="number">-90</span>%=<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line">     %wa：cpu空闲时等待io的时间</span><br><span class="line"></span><br><span class="line">     %hi：cpu处理硬中断的数量</span><br><span class="line"></span><br><span class="line">     %si：cpu处理软中断的数量</span><br><span class="line"></span><br><span class="line">     %st：被虚拟机偷走的cpu</span><br></pre></td></tr></table></figure>
+
+<p><strong>二、查看内存使用率</strong></p>
+<p>1.top命令</p>
+<p>内存使用率=used/total*100%</p>
+<p>2.free命令</p>
+<p>参考：<a href="http://www.cnblogs.com/black-mamba/p/5918688.html" target="_blank" rel="noopener">http://www.cnblogs.com/black-mamba/p/5918688.html</a></p>
+<p><strong>三、磁盘使用率</strong></p>
+<p>df命令</p>
+<p>磁盘使用率=（used的列之和）/（1k-blocks的列之和）</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imag/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imag/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,255 +242,116 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dzhebut.github.io/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BE%9D%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2020-07-11T09:10:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BE%9D%E6%8D%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库建立索引的一般依据</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BE%9D%E6%8D%AE/">数据库建立索引的一般依据</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99/" class="archive-article-date">
-  	<time datetime="2020-07-10T02:03:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99/">深入理解JVM内存分配原则</a>
-    </h1>
+  <div id="SOHUCS" sid="Linux下查看CPU、内存、磁盘使用情况" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cysX3aGWt",
+        conf: "prod_1dcda447175aada96edcdb7e412338fa"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%B8%ADTopK%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-07-07T14:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%B8%ADTopK%E9%97%AE%E9%A2%98/">海量数据中TopK问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">海量数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-07-06T02:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/">HashMap引入红黑树问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashMap</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/04/JVM%E8%BF%9B%E8%A1%8CFullGC%E7%9A%84%E6%83%85%E5%86%B5%E5%8F%8A%E5%BA%94%E5%AF%B9%E7%AD%96%E7%95%A5/" class="archive-article-date">
-  	<time datetime="2020-07-04T12:45:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/04/JVM%E8%BF%9B%E8%A1%8CFullGC%E7%9A%84%E6%83%85%E5%86%B5%E5%8F%8A%E5%BA%94%E5%AF%B9%E7%AD%96%E7%95%A5/">JVM进行FullGC的情况及应对策略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">垃圾回收机制</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/" class="archive-article-date">
-  	<time datetime="2020-07-01T08:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/">浅谈RabbitMQ</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">消息中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -464,8 +374,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
