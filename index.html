@@ -181,16 +181,9 @@ var _hmt = _hmt || [];
 <p>4、经常出现在Where子句中的字段，特别是大表的字段，应该建立索引；</p>
 <p>5、索引应该建在选择性高的字段上；</p>
 <p>6、索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引；</p>
-<p>7、复合索引的建立需要进行仔细分析；尽量考虑用单字段索引代替：</p>
-<p>   A、正确选择复合索引中的主列字段，一般是选择性较好的字段；</p>
-<p>   B、复合索引的几个字段是否经常同时以AND方式出现在Where子句中？单字段查询是否极少甚至没有？如果是，则可以建立复合索引；否则考虑单字段索引；</p>
-<p>   C、如果复合索引中包含的字段经常单独出现在Where子句中，则分解为多个单字段索引；</p>
-<p>   D、如果复合索引所包含的字段超过3个，那么仔细考虑其必要性，考虑减少复合的字段；</p>
-<p>   E、如果既有单字段索引，又有这几个字段上的复合索引，一般可以删除复合索引；</p>
-<p>8、频繁进行数据操作的表，不要建立太多的索引；</p>
-<p>9、删除无用的索引，避免对执行计划造成负面影响；</p>
-<p>   以上是一些普遍的建立索引时的判断依据。一言以蔽之，索引的建立必须慎重，对每个索引的必要性都应该经过仔细分析，要有建立的依据。因为太多的索引与不充分、不正确的索引对性能都毫无益处：在表上建立的每个索引都会增加存储开销，索引对于插入、删除、更新操作也会增加处理上的开销。另外，过多的复合索引，在有单字段索引的情况下，一般都是没有存在价值的；相反，还会降低数据增加删除时的性能，特别是对频繁更新的表来说，负面影响更大。</p>
-
+        
+          <a class="article-more-a" href="/2020/07/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BE%9D%E6%8D%AE/#more">more >></a>
+        
       
 
       
@@ -437,9 +430,9 @@ var _hmt = _hmt || [];
 <p>因为一棵由n个结点随机构造的二叉查找树的高度为lgn，所以顺理成章，二叉查找树的一般操作的执行时间为O(lgn)。但二叉查找树若退化成了一棵具有n个结点的线性链后，则这些操作最坏情况运行时间为O(n)。</p>
 <p>avl树即平衡树，他对二叉树做了改进，在我们每插入一个节点的时候，必须保证每个节点对应的左子树和右子树的树高度差不超过1。如果超过了就对其进行调平衡，具体的调平衡操作就不在这里讲了，无非就是四个操作——左旋，左旋再右旋，右旋再左旋。<br><img src="https://img-blog.csdnimg.cn/20190410101653494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzI1ODkwOA==,size_16,color_FFFFFF,t_70" alt="enter description here"><br>如图所示，图中M结点就是一个二节点，M左边的EJ节点是一个三节点。依然是大的数据放右边，小的数据放左边。此时我们向该树重如果该数可以直接放入二节点中，就直接进去，但如果正好需要放在三节点中，就像图中一样，Z正好要放在SX中。那么我们需要将该节点分裂成两个节点，并将中间的数提到父节点中去，就像图中将X放在了R旁边。当然如果将子节点提到父节点的时候导致了父节点里的数超过了两个，就继续向上提，直到满足了为止。<br><img src="https://img-blog.csdnimg.cn/20190410101811382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzI1ODkwOA==,size_16,color_FFFFFF,t_70" alt="enter description here"><br>在jdk1.8版本后，java对HashMap做了改进，在链表长度大于8的时候，将后面的数据存在红黑树中，以加快检索速度，我们接下来讲一下红黑树。</p>
 <p>红黑树虽然本质上是一棵二叉查找树，但它在二叉查找树的基础上增加了着色和相关的性质使得红黑树相对平衡，从而保证了红黑树的查找、插入、删除的时间复杂度最坏为O(log n)。加快检索速率。</p>
-<p><strong>红黑树的5个性质：</strong><br>1.每个结点要么是红的要么是黑的。<br>2.根结点是黑的。<br>3.每个叶结点（叶结点即指树尾端NIL指针或NULL结点）都是黑的。<br>4.如果一个结点是红的，那么它的两个儿子都是黑的。<br>5. 对于任意结点而言，其到叶结点树尾端NIL指针的每条路径都包含相同数目的黑结点。<br>   <img src="https://img-blog.csdnimg.cn/2019041010233344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzI1ODkwOA==,size_16,color_FFFFFF,t_70" alt="enter description here"><br>   红黑树还可以描述成：<br>⑴红链接均为左链接。<br>⑵没有任何一个结点同时和两条红链接相连。<br>⑶该树是完美黑色平衡的，即任意空链接到根结点的路径上的黑链接数量相同。<br>这里节点之间的连接分为红连接和黑连接，取代了红节点和黑节点的定义（本质是一样的），将之前的黑高度相等定义为了黑连接数相等。更为直观。<br>而如图所示，其实红黑树的每一步操作都对应了二三树的操作，如果是二节点就是黑连接，三节点的话里面的两个数之间就是红连接。</p>
-<p>红黑树相比avl树，在检索的时候效率其实差不多，都是通过平衡来二分查找。但对于插入删除等操作效率提高很多。红黑树不像avl树一样追求绝对的平衡，他允许局部很少的不完全平衡，这样对于效率影响不大，但省去了很多没有必要的调平衡操作，avl树调平衡有时候代价较大，所以效率不如红黑树。</p>
-
+        
+          <a class="article-more-a" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/#more">more >></a>
+        
       
 
       
@@ -525,13 +518,9 @@ var _hmt = _hmt || [];
 <p>promotion failed是在进行Minor GC时，survivor space放不下、对象只能放入老年代，而此时老年代也放不下造成的；</p>
 <p>concurrent mode failure是在执行CMS GC的过程中同时有对象要放入老年代，而此时老年代空间不足造成的（有时候“空间不足”是CMS GC时当前的浮动垃圾过多导致暂时性的空间不足触发Full GC）。</p>
 <p>对应措施为：增大survivor space、老年代空间或调低触发并发GC的比率，但在JDK 5.0+、6.0+的版本中有可能会由于JDK的bug29导致CMS在remark完毕后很久才触发sweeping动作。对于这种状况，可通过设置-XX: CMSMaxAbortablePrecleanTime=5（单位为ms）来避免。</p>
-<p><strong>5、统计得到的Minor GC晋升到旧生代的平均大小大于老年代的剩余空间</strong><br>这是一个较为复杂的触发情况，Hotspot为了避免由于新生代对象晋升到旧生代导致旧生代空间不足的现象，在进行Minor GC时，做了一个判断，如果之前统计所得到的Minor GC晋升到旧生代的平均大小大于旧生代的剩余空间，那么就直接触发Full GC。</p>
-<p>例如程序第一次触发Minor GC后，有6MB的对象晋升到旧生代，那么当下一次Minor GC发生时，首先检查旧生代的剩余空间是否大于6MB，如果小于6MB，则执行Full GC。</p>
-<p>当新生代采用PS GC时，方式稍有不同，PS GC是在Minor GC后也会检查，例如上面的例子中第一次Minor GC后，PS GC会检查此时旧生代的剩余空间是否大于6MB，如小于，则触发对旧生代的回收。</p>
-<p>除了以上4种状况外，对于使用RMI来进行RPC或管理的Sun JDK应用而言，默认情况下会一小时执行一次Full GC。可通过在启动时通过- java -Dsun.rmi.dgc.client.gcInterval=3600000来设置Full GC执行的间隔时间或通过-XX:+ DisableExplicitGC来禁止RMI调用System.gc。</p>
-<p><strong>6、堆中分配很大的对象</strong><br>所谓大对象，是指需要大量连续内存空间的Java对象，例如很长的数组，此种对象会直接进入老年代，而老年代虽然有很大的剩余空间，但是无法找到足够大的连续空间来分配给当前对象，此种情况就会触发JVM进行Full GC。</p>
-<p>为了解决这个问题，CMS垃圾收集器提供了一个可配置的参数，即-XX:+UseCMSCompactAtFullCollection开关参数，用于在“享受”完Full GC服务之后额外免费赠送一个碎片整理的过程，内存整理的过程无法并发的，空间碎片问题没有了，但提顿时间不得不变长了，JVM设计者们还提供了另外一个参数 -XX:CMSFullGCsBeforeCompaction,这个参数用于设置在执行多少次不压缩的Full GC后,跟着来一次带压缩的。</p>
-
+        
+          <a class="article-more-a" href="/2020/07/04/JVM%E8%BF%9B%E8%A1%8CFullGC%E7%9A%84%E6%83%85%E5%86%B5%E5%8F%8A%E5%BA%94%E5%AF%B9%E7%AD%96%E7%95%A5/#more">more >></a>
+        
       
 
       
@@ -620,19 +609,9 @@ var _hmt = _hmt || [];
 <p>举个例子秒杀业务：</p>
 <p>上游系统发起下单购买操作，就是下单一个操作</p>
 <p>下游系统完成秒杀业务逻辑<br>（读取订单、库存检查、库存冻结、余额检查、余额冻结、订单生成、余额扣减、库存扣减、生成流水、余额解冻、库存解冻）</p>
-<p><strong>三、等待同步存在性能问题</strong></p>
-<p>RPC 接口基本上是 同步调用，整体服务性能遵循 “木桶理论”，即 整体系统的耗时取决于链路中 最慢的 那个接口</p>
-<p>比如 A 调用 B/C/D 都是 50ms，但此时 B 又调用了 B1，花费 2000 ms，那么直接就拖累了整个服务性能<br><img src="https://img-blog.csdnimg.cn/20200502201540243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>如何解决？</strong><br>要做到系统解耦，当新的模块接进来时，可以做到代码改动最小；<strong>能够解耦</strong><br>设置流量缓冲池，可以让后端系统按照自身吞吐能力进行消费，不被冲垮；<strong>能够削峰</strong><br>强弱依赖梳理能将非关键调用链路的操作异步化并提升整体系统的吞吐能力；<strong>能够异步</strong><br><strong>消息中间件的定义</strong><br>面向消息的中间件（Message-Oriented Middleware）MOM 能够很好的解决以上问题</p>
-<p>    是指利用高效可靠的消息传递机制进行平台无关的数据交流，并基于数据通信来进行分布式系统的集成。通过提供 消息传递 和 消息排队 模型在分布式环境下提供应用解耦、弹性伸缩、冗余存储、流量削峰、异步通信、数据同步等功能</p>
-<p>大致的过程是这样的：</p>
-<p>    发送者把消息发送给消息服务器，消息服务器将消息存放在若干个 队列 / 主题 中，在合适的时候，消息服务器会将消息转发给接收者。在这个过程中，发送和接收是异步的，也就是发送无需等待，而且发送者和接收者的生命周期也没有必然关系；尤其在发布 pub / 订阅 sub 模式下，也可以完成一对多的通信，即让一个消息有多个接收者<br>    <img src="https://img-blog.csdnimg.cn/20200502204037754.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>特点</strong><br><strong>采用异步处理模式</strong><br>    消息发送者可以发送一个消息而无须等待响应。消息发送者将消息发送到一条虚拟的通道（主题或队列上）；消息接收者则订阅或监听该通道。一条信息可能最终转发给一个或者多个消息接收者，这些接收者都无需对消息发送者做出同步回应，整个过程都是异步的</p>
-<p>案例：<br>    也就是说，一个系统跟另一个系统之间进行通信的时候，假如系统 A 希望发送一个消息给系统 B，让它去处理<br>    但是系统 A 不关注系统 B 到底怎么处理或者有没有处理好，所以系统 A 把消息发送给 MQ，然后就不管这条消息了，接着系统 B 从 MQ 里消费出来处理即可。至于怎么处理，是否处理完毕，什么时候处理，都是系统 B 的事，与系统 A 无关<br>    <img src="https://img-blog.csdnimg.cn/20200502204637922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br>    这样的一种通信方式，就是所谓的 “异步” 通信方式对于系统 A 来说，只要把消息发送给 MQ，然后系统 B 就会异步的去进行处理了，系统 A 不需要 “同步” 的等待系统 B 处理完。这样的好处是什么呢？两个字：<strong>解耦</strong></p>
-<p><strong>应用场景</strong><br>1、任务异步处理</p>
-<p>将不需要同步处理的并且耗时长的操作由队列通知消息接收方进行异步处理，提高了应用程序的响应时间<br>2、应用程序解耦合</p>
-<p>MQ 相当于一个中介，生产方通过 MQ 与消费方进行交互，它将应用程序进行解耦合<br><strong>市场上还有哪些 MQ？</strong><br>ActiveMQ、RabbitMQ、ZeroMQ、Kafka、MetaMQ、RocketMQ、Redis</p>
-<p><strong>为什么使用 RabbitMQ？</strong><br>使用简单，功能强大<br>基于 AMQP 协议<br>社区活跃，文档完善<br>高并发性能好，这主要得益于 Erlang 语言<br>SpringBoot 默认已集成 RabbitMQ<br><strong>RabbitMQ 的工作原理</strong><br><img src="https://img-blog.csdnimg.cn/20200526143121783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br>组成部分说明如下：<br>Broker：消息队列服务进程，此进程包括两个部分：Exchange 和 Queue<br>Exchange：消息队列交换机，按一定的规则将消息路由转发到某个队列，对消息进行过滤<br>Queue：消息队列，存储消息的队列，消息到达队列并转发给指定的消费方<br>Producer：消息生产者，即生产方客户端，生产方客户端将消费发送到 MQ<br>Consumer：消息消费者，即消费方客户端，接收 MQ 妆发的消息</p>
-<p><strong>消息发布接收流程<br>发送消息</strong><br>1、生产者和 Broker 建立 TCP 连接<br>2、生产者和 Broker 建立通道<br>3、生产者通过通道消息发送 Broker，由 Exchange 将消息进行转发<br>4、Exchange 将消息转发到指定的 Queue（队列）<br><strong>接收消息</strong><br>1、消费者和 Broker 建立 TCP 连接<br>2、消费者和 Broker 建立通道<br>3、消费者监听指定的 Queue（队列）<br>4、当有消息到达 Queue 时 Broker 默认将消息推送给消费者<br>5、消费者接收到消息</p>
-
+        
+          <a class="article-more-a" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/#more">more >></a>
+        
       
 
       

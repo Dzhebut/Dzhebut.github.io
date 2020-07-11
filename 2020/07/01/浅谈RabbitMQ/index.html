@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200502204637922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200526143121783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-07-01T08:10:46.000Z">
-<meta property="article:modified_time" content="2020-07-06T08:47:25.762Z">
+<meta property="article:modified_time" content="2020-07-11T09:20:19.081Z">
 <meta property="article:author" content="Joey Du">
 <meta property="article:tag" content="消息中间件">
 <meta name="twitter:card" content="summary">
@@ -195,6 +195,8 @@ var _hmt = _hmt || [];
 <p>举个例子秒杀业务：</p>
 <p>上游系统发起下单购买操作，就是下单一个操作</p>
 <p>下游系统完成秒杀业务逻辑<br>（读取订单、库存检查、库存冻结、余额检查、余额冻结、订单生成、余额扣减、库存扣减、生成流水、余额解冻、库存解冻）</p>
+<a id="more"></a>
+
 <p><strong>三、等待同步存在性能问题</strong></p>
 <p>RPC 接口基本上是 同步调用，整体服务性能遵循 “木桶理论”，即 整体系统的耗时取决于链路中 最慢的 那个接口</p>
 <p>比如 A 调用 B/C/D 都是 50ms，但此时 B 又调用了 B1，花费 2000 ms，那么直接就拖累了整个服务性能<br><img src="https://img-blog.csdnimg.cn/20200502201540243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>如何解决？</strong><br>要做到系统解耦，当新的模块接进来时，可以做到代码改动最小；<strong>能够解耦</strong><br>设置流量缓冲池，可以让后端系统按照自身吞吐能力进行消费，不被冲垮；<strong>能够削峰</strong><br>强弱依赖梳理能将非关键调用链路的操作异步化并提升整体系统的吞吐能力；<strong>能够异步</strong><br><strong>消息中间件的定义</strong><br>面向消息的中间件（Message-Oriented Middleware）MOM 能够很好的解决以上问题</p>
