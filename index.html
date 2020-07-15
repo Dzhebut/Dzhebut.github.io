@@ -154,6 +154,109 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring常用的注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/">Spring常用的注解</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-07-15T11:28:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一．注解:</strong><br>注解分为两类，一种是使用bean的（@Autowired , @Resource），一种是注册bean的（@Component , @Repository , @ Controller , @Service , @Configration）</p>
+<p><strong>1.@Bean注解</strong><br>@Bean 标识一个用于配置和初始化一个由SpringIoc容器管理的新对象的方法，类似于XML配置文件的<bean>，一般与@Configration注解配合使用</bean></p>
+<p><strong>注册bean：</strong><br><strong>2.@Service注解</strong><br>首先，在配置root-config.xml文件中加一行：</p>
+<p>加上这一行以后，将自动扫描路径下面的包，如果一个类带了@Service注解，将自动注册到Spring容器，不需要再在applicationContext.xml文件定义bean了</p>
+<p>类似作用的还包括@Component、@Repository、@Controller：</p>
+<p><strong>3.@Component注解</strong><br>把普通pojo实例化到spring容器中，相当于配置文件中的<br><bean id class>泛指各种组件，就是说当我们的类不属于各种归类的时候（不属于@Controller、@Services等的时候），我们就可以使用@Component来标注这个类</bean></p>
+<p><strong>4.@Repository注解</strong><br>用于标注数据访问组件，即DAO组件，再稍微大点的项目里，使用xml的bean定义来配置会大大增加代码体积且不易维护，所以引入了自动扫描的机制，它的作用和在xml文件中使用bean节点配置组件时一样的。</p>
+<p><strong>5.@Controller注解</strong><br>当组件属于控制层时，则使用@Controller注解</p>
+<p>被Controller标记的类就是一个控制器，这个类中的方法，就是相应的动作</p>
+<p><strong>6.@Configration注解</strong><br>@Configuration用于定义配置类，可替换xml配置文件，被注解的类内部包含有一个或多个被@Bean注解的方法，这些方法将会被AnnotationConfigApplicationContext或AnnotationConfigWebApplicationContext类进行扫描，并用于构建bean定义，初始化Spring容器</p>
+<p>需要注意的是：</p>
+<p>@Configuration不可以是final类型；</p>
+<p>@Configuration不可以是匿名类；</p>
+<p>嵌套的configuration必须是静态类。</p>
+<p>Bean注解主要用于方法上，有点类似于工厂方法，当使用了@Bean注解，我们可以连续使用多种定义bean时用到的注解，譬如用@Qualifier注解定义工厂方法的名称，用@Scope注解定义该bean的作用域范围，譬如是singleton还是prototype等。</p>
+<p><strong>使用bean：</strong></p>
+<p><strong>7.@Autowired 注解</strong><br>它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。 通过 @Autowired的使用来消除 set ，get方法。</p>
+<p>@Autowired注解可用于为类的属性、构造器、方法进行注值。默认情况下，其依赖的对象必须存在（bean可用）如果容器中包含多个同一类型的Bean，那么启动容器时会报找不到指定类型bean的异常，解决办法是结合@Qualifier注解进行限定，指定注入的bean名称</p>
+<p><strong>8.@Resource注解</strong><br>@Resource和@Autowired注解都是用来实现依赖注入的。只是@Autowired按byType自动注入，而@Resource默认按 byName自动注入</p>
+<p>@Resource依赖注入时查找bean的规则</p>
+<p>既不指定name属性，也不指定type属性，则自动按byName方式进行查找。如果没有找到符合的bean，则回退为一个原始类型进行进行查找，如果找到就注入。<br>只是指定了@Resource注解的name，则按name后的名字去bean元素里查找有与之相等的name属性的bean。<br>只指定@Resource注解的type属性，则从上下文中找到类型匹配的唯一bean进行装配，找不到或者找到多个，都会抛出异常<br>既指定了@Resource的name属性又指定了type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常</p>
+<p><strong>除此之外还有很多注解：</strong></p>
+<p><strong>9.@Override注解</strong><br>标示当前的方法定义将覆盖超类中的方法他告诉我们同时也告诉编译器我们的这些方法肯定覆盖了类<strong>里面的方法，如果注释掉类</strong>里面的方法 那么就会报错，它需要全部覆盖某个接口的方法。</p>
+<p><strong>10.@ComponentScan注解</strong><br>@ComponentScan告诉Spring 哪个packages 的用注解标识的类 会被spring自动扫描并且装入bean容器。</p>
+<p>例如，如果你有个类用@Controller注解标识了，那么，如果不加上@ComponentScan，自动扫描该controller，那么该Controller就不会被spring扫描到，更不会装入spring容器中，因此你配置的这个Controller也没有意义。</p>
+<p><strong>11.@PropertySouce注解</strong><br>通过@PropertySource注解将properties配置文件中的值存储到Spring的 Environment中，Environment接口提供方法去读取配置文件中的值，参数是properties文件中定义的key值。</p>
+<p><strong>12.@ImportResource注解和@Import注解</strong><br>@Import注解是引入带有@Configuration的java类。</p>
+<p>@ImportResource是引入spring配置文件.xml</p>
+<p><strong>13.@RequestMapping</strong><br>是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。</p>
+<p><strong>14.@responseBody注解</strong><br>@responseBody注解的作用是将controller的方法返回的对象通过适当的转换器转换为指定的格式之后，写入到response对象的body区，通常用来返回JSON数据或者是XML数据</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux下查看CPU、内存、磁盘使用情况" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -870,6 +973,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>

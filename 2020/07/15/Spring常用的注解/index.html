@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dzhebut.github.io">
-  <title>Tag: HashMap | Hexo</title>
+  <title>Spring常用的注解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://dzhebut.github.io/tags/HashMap/index.html">
+  <meta name="description" content="一．注解:注解分为两类，一种是使用bean的（@Autowired , @Resource），一种是注册bean的（@Component , @Repository , @ Controller , @Service , @Configration） 1.@Bean注解@Bean 标识一个用于配置和初始化一个由SpringIoc容器管理的新对象的方法，类似于XML配置文件的，一般与@Configr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring常用的注解">
+<meta property="og:url" content="https://dzhebut.github.io/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一．注解:注解分为两类，一种是使用bean的（@Autowired , @Resource），一种是注册bean的（@Component , @Repository , @ Controller , @Service , @Configration） 1.@Bean注解@Bean 标识一个用于配置和初始化一个由SpringIoc容器管理的新对象的方法，类似于XML配置文件的，一般与@Configr">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-15T11:28:41.000Z">
+<meta property="article:modified_time" content="2020-07-15T11:35:31.361Z">
 <meta property="article:author" content="Joey Du">
+<meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,64 +157,216 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Spring常用的注解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-07-06T02:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/">HashMap引入红黑树问题</a>
+    <h1 class="article-title" itemprop="name">
+      Spring常用的注解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-07-15T11:28:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一．注解:</strong><br>注解分为两类，一种是使用bean的（@Autowired , @Resource），一种是注册bean的（@Component , @Repository , @ Controller , @Service , @Configration）</p>
+<p><strong>1.@Bean注解</strong><br>@Bean 标识一个用于配置和初始化一个由SpringIoc容器管理的新对象的方法，类似于XML配置文件的<bean>，一般与@Configration注解配合使用</bean></p>
+<p><strong>注册bean：</strong><br><strong>2.@Service注解</strong><br>首先，在配置root-config.xml文件中加一行：</p>
+<p>加上这一行以后，将自动扫描路径下面的包，如果一个类带了@Service注解，将自动注册到Spring容器，不需要再在applicationContext.xml文件定义bean了</p>
+<p>类似作用的还包括@Component、@Repository、@Controller：</p>
+<p><strong>3.@Component注解</strong><br>把普通pojo实例化到spring容器中，相当于配置文件中的<br><bean id class>泛指各种组件，就是说当我们的类不属于各种归类的时候（不属于@Controller、@Services等的时候），我们就可以使用@Component来标注这个类</bean></p>
+<p><strong>4.@Repository注解</strong><br>用于标注数据访问组件，即DAO组件，再稍微大点的项目里，使用xml的bean定义来配置会大大增加代码体积且不易维护，所以引入了自动扫描的机制，它的作用和在xml文件中使用bean节点配置组件时一样的。</p>
+<p><strong>5.@Controller注解</strong><br>当组件属于控制层时，则使用@Controller注解</p>
+<p>被Controller标记的类就是一个控制器，这个类中的方法，就是相应的动作</p>
+<p><strong>6.@Configration注解</strong><br>@Configuration用于定义配置类，可替换xml配置文件，被注解的类内部包含有一个或多个被@Bean注解的方法，这些方法将会被AnnotationConfigApplicationContext或AnnotationConfigWebApplicationContext类进行扫描，并用于构建bean定义，初始化Spring容器</p>
+<p>需要注意的是：</p>
+<p>@Configuration不可以是final类型；</p>
+<p>@Configuration不可以是匿名类；</p>
+<p>嵌套的configuration必须是静态类。</p>
+<p>Bean注解主要用于方法上，有点类似于工厂方法，当使用了@Bean注解，我们可以连续使用多种定义bean时用到的注解，譬如用@Qualifier注解定义工厂方法的名称，用@Scope注解定义该bean的作用域范围，譬如是singleton还是prototype等。</p>
+<p><strong>使用bean：</strong></p>
+<p><strong>7.@Autowired 注解</strong><br>它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。 通过 @Autowired的使用来消除 set ，get方法。</p>
+<p>@Autowired注解可用于为类的属性、构造器、方法进行注值。默认情况下，其依赖的对象必须存在（bean可用）如果容器中包含多个同一类型的Bean，那么启动容器时会报找不到指定类型bean的异常，解决办法是结合@Qualifier注解进行限定，指定注入的bean名称</p>
+<p><strong>8.@Resource注解</strong><br>@Resource和@Autowired注解都是用来实现依赖注入的。只是@Autowired按byType自动注入，而@Resource默认按 byName自动注入</p>
+<p>@Resource依赖注入时查找bean的规则</p>
+<p>既不指定name属性，也不指定type属性，则自动按byName方式进行查找。如果没有找到符合的bean，则回退为一个原始类型进行进行查找，如果找到就注入。<br>只是指定了@Resource注解的name，则按name后的名字去bean元素里查找有与之相等的name属性的bean。<br>只指定@Resource注解的type属性，则从上下文中找到类型匹配的唯一bean进行装配，找不到或者找到多个，都会抛出异常<br>既指定了@Resource的name属性又指定了type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常</p>
+<p><strong>除此之外还有很多注解：</strong></p>
+<p><strong>9.@Override注解</strong><br>标示当前的方法定义将覆盖超类中的方法他告诉我们同时也告诉编译器我们的这些方法肯定覆盖了类<strong>里面的方法，如果注释掉类</strong>里面的方法 那么就会报错，它需要全部覆盖某个接口的方法。</p>
+<p><strong>10.@ComponentScan注解</strong><br>@ComponentScan告诉Spring 哪个packages 的用注解标识的类 会被spring自动扫描并且装入bean容器。</p>
+<p>例如，如果你有个类用@Controller注解标识了，那么，如果不加上@ComponentScan，自动扫描该controller，那么该Controller就不会被spring扫描到，更不会装入spring容器中，因此你配置的这个Controller也没有意义。</p>
+<p><strong>11.@PropertySouce注解</strong><br>通过@PropertySource注解将properties配置文件中的值存储到Spring的 Environment中，Environment接口提供方法去读取配置文件中的值，参数是properties文件中定义的key值。</p>
+<p><strong>12.@ImportResource注解和@Import注解</strong><br>@Import注解是引入带有@Configuration的java类。</p>
+<p>@ImportResource是引入spring配置文件.xml</p>
+<p><strong>13.@RequestMapping</strong><br>是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。</p>
+<p><strong>14.@responseBody注解</strong><br>@responseBody注解的作用是将controller的方法返回的对象通过适当的转换器转换为指定的格式之后，写入到response对象的body区，通常用来返回JSON数据或者是XML数据</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imag/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imag/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashMap</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dzhebut.github.io/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux下查看CPU、内存、磁盘使用情况</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="Spring常用的注解" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cysX3aGWt",
+        conf: "prod_1dcda447175aada96edcdb7e412338fa"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -232,9 +389,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
