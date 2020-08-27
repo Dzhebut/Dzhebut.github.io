@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dzhebut.github.io">
-  <title>Tag: 数据库 | Hexo</title>
+  <title>SQL语句学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://dzhebut.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+  <meta name="description" content="SQL语句的执行顺序：创建school数据库 12create database school;use school;  创建四张表 123456789101112131415161718192021222324create table student(    s_id varchar(10),    s_name varchar(20),    s_age date,    s_sex varc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL语句学习">
+<meta property="og:url" content="https://dzhebut.github.io/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SQL语句的执行顺序：创建school数据库 12create database school;use school;  创建四张表 123456789101112131415161718192021222324create table student(    s_id varchar(10),    s_name varchar(20),    s_age date,    s_sex varc">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/18317213-b4acb3c4e5b739d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/18317213-950a7a4578b42f00.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp">
+<meta property="article:published_time" content="2020-06-11T09:20:34.000Z">
+<meta property="article:modified_time" content="2020-08-27T06:29:16.988Z">
 <meta property="article:author" content="Joey Du">
+<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/18317213-b4acb3c4e5b739d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -152,74 +160,75 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SQL语句学习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BE%9D%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2020-07-11T09:10:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BE%9D%E6%8D%AE/">数据库建立索引的一般依据</a>
+    <h1 class="article-title" itemprop="name">
+      SQL语句学习
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+        
+        <a href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
   	<time datetime="2020-06-11T09:20:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/">SQL语句学习</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>SQL语句的执行顺序：</strong><br><img src="https://upload-images.jianshu.io/upload_images/18317213-b4acb3c4e5b739d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp" alt="enter description here"><br>创建school数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database school;</span><br><span class="line">use school;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>创建四张表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">create table student(</span><br><span class="line">    s_id varchar(10),</span><br><span class="line">    s_name varchar(20),</span><br><span class="line">    s_age date,</span><br><span class="line">    s_sex varchar(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table course(</span><br><span class="line">    c_id varchar(10),</span><br><span class="line">    c_name varchar(20),</span><br><span class="line">    t_id varchar(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create table teacher (</span><br><span class="line">t_id varchar(10),</span><br><span class="line">t_name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table score (</span><br><span class="line">    s_id varchar(10),</span><br><span class="line">    c_id varchar(10),</span><br><span class="line">    score varchar(10)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>往表里插值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">insert into student (s_id, s_name, s_age, s_sex)</span><br><span class="line">values  (&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;);</span><br><span class="line"></span><br><span class="line">insert into course (c_id, c_name, t_id)</span><br><span class="line">values  (&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;);</span><br><span class="line"></span><br><span class="line">insert into teacher (t_id, t_name)</span><br><span class="line">values  (&#39;01&#39; , &#39;张三&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;李四&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;王五&#39;);</span><br><span class="line"></span><br><span class="line">insert into score (s_id, c_id, score)</span><br><span class="line">values  (&#39;01&#39; , &#39;01&#39; , 80),</span><br><span class="line">        (&#39;01&#39; , &#39;02&#39; , 90),</span><br><span class="line">        (&#39;01&#39; , &#39;03&#39; , 99),</span><br><span class="line">        (&#39;02&#39; , &#39;01&#39; , 70),</span><br><span class="line">        (&#39;02&#39; , &#39;02&#39; , 60),</span><br><span class="line">        (&#39;02&#39; , &#39;03&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;01&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;02&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;03&#39; , 80),</span><br><span class="line">        (&#39;04&#39; , &#39;01&#39; , 50),</span><br><span class="line">        (&#39;04&#39; , &#39;02&#39; , 30),</span><br><span class="line">        (&#39;04&#39; , &#39;03&#39; , 20),</span><br><span class="line">        (&#39;05&#39; , &#39;01&#39; , 76),</span><br><span class="line">        (&#39;05&#39; , &#39;02&#39; , 87),</span><br><span class="line">        (&#39;06&#39; , &#39;01&#39; , 31),</span><br><span class="line">        (&#39;06&#39; , &#39;03&#39; , 34),</span><br><span class="line">        (&#39;07&#39; , &#39;02&#39; , 89),</span><br><span class="line">        (&#39;07&#39; , &#39;03&#39; , 98);</span><br></pre></td></tr></table></figure>
+
+<p>看下建好的四张表</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/18317213-950a7a4578b42f00.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp" alt="四张表"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imag/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/imag/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,19 +240,120 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dzhebut.github.io/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浅谈RabbitMQ
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="SQL语句学习" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cysX3aGWt",
+        conf: "prod_1dcda447175aada96edcdb7e412338fa"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -266,9 +376,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
