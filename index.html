@@ -154,28 +154,27 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-线程和进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-进程的调度算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/08/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B/">线程和进程</a>
+      <a class="article-title" href="/2020/09/03/%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">进程的调度算法</a>
     </h1>
   
 
         
-        <a href="/2020/09/08/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-09-08T07:08:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
+        <a href="/2020/09/03/%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-09-03T07:31:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>并发和并行的理解？</strong><br>并行是指两个或者多个事件在同一时刻发生；而并发是指两个或多个事件在同一时间间隔发生；<br>并行是在不同实体上的多个事件，并发是在同一实体上的多个事件；<br><strong>同步、异步、阻塞、非阻塞的概念</strong><br>同步：当一个同步调用发出后，调用者要一直等待返回结果。通知后，才能进行后续的执行。<br>异步：当一个异步过程调用发出后，调用者不能立刻得到返回结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。<br>阻塞：是指调用结果返回前，当前线程会被挂起，即阻塞。<br>非阻塞：是指即使调用结果没返回，也不会阻塞当前线程。<br><strong>进程和线程的基本概念</strong><br>进程：进程是系统进行资源分配和调度的一个独立单位，是系统中的并发执行的单位。<br>线程：线程是进程的一个实体，也是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位，有时又被称为轻权进程或轻量级进程。<br><strong>进程与线程的区别</strong>？<br>进程是资源分配的最小单位，而线程是 CPU 调度的最小单位；<br>创建进程或撤销进程，系统都要为之分配或回收资源，操作系统开销远大于创建或撤销线程时的开销；<br>不同进程地址空间相互独立，同一进程内的线程共享同一地址空间。一个进程的线程在另一个进程内是不可见的；<br>进程间不会相互影响，而一个线程挂掉将可能导致整个进程挂掉；<br><strong>为什么有了进程，还要有线程呢？</strong><br>进程可以使多个程序并发执行，以提高资源的利用率和系统的吞吐量，但是其带来了一些缺点：<br>1.进程在同一时间只能干一件事情；<br>2.进程在执行的过程中如果阻塞，整个进程就会被挂起，即使进程中有些工作不依赖与等待的资源，仍然不会执行。<br>基于以上的缺点，操作系统引入了比进程粒度更小的线程，作为并发执行的基本单位，从而减少程序在并发执行时所付出的时间和空间开销，提高并发性<br>能。<br><strong>进程的状态转换</strong><br>进程包括三种状态：就绪态、运行态和阻塞态。</p>
-<p>1  就绪 —&gt; 执行：对就绪状态的进程，当进程调度程序按一种选定的策略从中选中一个就绪进程，为之分配了处理机后，该进程便由就绪状态变为执行状态；<br>2  执行 —&gt; 阻塞：正在执行的进程因发生某等待事件而无法执行，则进程由执行状态变为阻塞状态，如进程提出输入/输出请求而变成等待外部设备传输信息的状态，进程申请资源（主存空间或外部设备）得不到满足时变成等待资源<br>状态，进程运行中出现了故障（程序出错或主存储器读写错等）变成等待干预状态等等；<br>3   阻塞 —&gt; 就绪：处于阻塞状态的进程，在其等待的事件已经发生，如输入/输出完成，资源得到满足或错误处理完毕时，处于等待状态的进程并不马上转入执行状态，而是先转入就绪状态，然后再由系统进程调度程序在适当的时候将该进程转为执行状态；<br> 4  执行 —&gt; 就绪：正在执行的进程，因时间片用完而被暂停执行，或在采用抢先式优先级调度算法的系统中,当有更高优先级的进程要运行而被迫让出处理机时，该进程便由执行状态转变为就绪状态。</p>
+        <p>调度算法是指：根据系统的资源分配策略所规定的资源分配算法。常用的调度算法有：先来先服务调度算法、时间片轮转调度法、短作业优先调度算法、最短剩余时间优先、高响应比优先调度算法、优先级调度算法等等。<br><strong>先来先服务调度算法</strong><br>先来先服务调度算法是一种最简单的调度算法，也称为先进先出或严格排队方案。当每个进程就绪后，它加入就绪队列。当前正运行的进程停止执行，选择在就绪队列中存在时间最长的进程运行。该算法既可以用于作业调度，也可以用于进程调度。先来先去服务比较适合于常作业（进程），而不利于段作业（进程）。<br><strong>时间片轮转调度算法</strong><br>时间片轮转调度算法主要适用于分时系统。在这种算法中，系统将所有就绪进程按到达时间的先后次序排成一个队列，进程调度程序总是选择就绪队列中第一个进程执行，即先来先服务的原则，但仅能运行一个时间片。<br><strong>短作业优先调度算法</strong><br>短作业优先调度算法是指对短作业优先调度的算法，从后备队列中选择一个或若干个估计运行时间最短的作业，将它们调入内存运行。 短作业优先调度算法是一个非抢占策略，他的原则是下一次选择预计处理时间最短的进程，因此短进程将会越过长作业，跳至队列头。<br><strong>最短剩余时间优先调度算法</strong><br>最短剩余时间是针对最短进程优先增加了抢占机制的版本。在这种情况下，进程调度总是选择预期剩余时间最短的进程。当一个进程加入到就绪队列时，他可能比当前运行的进程具有更短的剩余时间，因此只要新进程就绪，调度程序就能可能抢占当前正在运行的进程。像最短进程优先一样，调度程序正在执行选择函数是必须有关于处理时间的估计，并且存在长进程饥饿的危险。<br><strong>高响应比优先调度算法</strong><br>高响应比优先调度算法主要用于作业调度，该算法是对 先来先服务调度算法和短作业优先调度算法的一种综合平衡，同时考虑每个作业的等待时间和估计的运行时间。在每次进行作业调度时，先计算后备作业队列中每个作业的响应比，从中选出响应比最高的作业投入运行。<br><strong>优先级调度算法</strong><br>优先级调度算法每次从后备作业队列中选择优先级最髙的一个或几个作业，将它们调入内存，分配必要的资源，创建进程并放入就绪队列。在进程调度中，优先级调度算法每次从就绪队列中选择优先级最高的进程，将处理机分配给它，使之投入运行。</p>
 
       
 
@@ -199,7 +198,156 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/08/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/03/%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-进程间的通信方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/08/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">进程间的通信方式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/08/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-08-08T07:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>进程间通信（IPC，InterProcess Communication）是指在不同进程之间传播或交换信息。IPC 的方式通常有管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、Socket、Streams 等。其中 Socket 和 Streams 支持不同主机上的两个进程 IPC。<br><strong>管道</strong><br>1 它是半双工的，具有固定的读端和写端；<br>2 它只能用于父子进程或者兄弟进程之间的进程的通信；<br>3 它可以看成是一种特殊的文件，对于它的读写也可以使用普通的 read、write  等函数。但是它不是普通的文件，并不属于其他任何文件系统，并且只存在于内存中。<br><strong>命名管道</strong><br>1 FIFO 可以在无关的进程之间交换数据，与无名管道不同；<br>2 FIFO 有路径名与之相关联，它以一种特殊设备文件形式存在于文件系统中。<br><strong>消息队列</strong><br>1 消息队列，是消息的链接表，存放在内核中。一个消息队列由一个标识符 ID 来标识；<br>2 消息队列是面向记录的，其中的消息具有特定的格式以及特定的优先级；<br>3 消息队列独立于发送与接收进程。进程终止时，消息队列及其内容并不会被删除；<br>4 消息队列可以实现消息的随机查询，消息不一定要以先进先出的次序读取，也可以按消息的类型读取。<br><strong>信号量</strong><br>1 信号量（semaphore）是一个计数器。用于实现进程间的互斥与同步，而不是用于存储进程间通信数据；<br>2 信号量用于进程间同步，若要在进程间传递数据需要结合共享内存；<br>3 信号量基于操作系统的 PV 操作，程序对信号量的操作都是原子操作；<br>4 每次对信号量的 PV 操作不仅限于对信号量值加 1 或减 1，而且可以加减任意正整数；<br>5 支持信号量组。<br><strong>共享内存</strong><br>1 共享内存（Shared Memory），指两个或多个进程共享一个给定的存储区；<br>2 共享内存是最快的一种 IPC，因为进程是直接对内存进行存取。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/08/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-线程和进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/02/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B/">线程和进程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/02/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-08-02T07:08:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>并发和并行的理解？</strong><br>并行是指两个或者多个事件在同一时刻发生；而并发是指两个或多个事件在同一时间间隔发生；<br>并行是在不同实体上的多个事件，并发是在同一实体上的多个事件；<br><strong>同步、异步、阻塞、非阻塞的概念</strong><br>同步：当一个同步调用发出后，调用者要一直等待返回结果。通知后，才能进行后续的执行。<br>异步：当一个异步过程调用发出后，调用者不能立刻得到返回结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。<br>阻塞：是指调用结果返回前，当前线程会被挂起，即阻塞。<br>非阻塞：是指即使调用结果没返回，也不会阻塞当前线程。<br><strong>进程和线程的基本概念</strong><br>进程：进程是系统进行资源分配和调度的一个独立单位，是系统中的并发执行的单位。<br>线程：线程是进程的一个实体，也是 CPU 调度和分派的基本单位，它是比进程更小的能独立运行的基本单位，有时又被称为轻权进程或轻量级进程。<br><strong>进程与线程的区别</strong>？<br>进程是资源分配的最小单位，而线程是 CPU 调度的最小单位；<br>创建进程或撤销进程，系统都要为之分配或回收资源，操作系统开销远大于创建或撤销线程时的开销；<br>不同进程地址空间相互独立，同一进程内的线程共享同一地址空间。一个进程的线程在另一个进程内是不可见的；<br>进程间不会相互影响，而一个线程挂掉将可能导致整个进程挂掉；<br><strong>为什么有了进程，还要有线程呢？</strong><br>进程可以使多个程序并发执行，以提高资源的利用率和系统的吞吐量，但是其带来了一些缺点：<br>1.进程在同一时间只能干一件事情；<br>2.进程在执行的过程中如果阻塞，整个进程就会被挂起，即使进程中有些工作不依赖与等待的资源，仍然不会执行。<br>基于以上的缺点，操作系统引入了比进程粒度更小的线程，作为并发执行的基本单位，从而减少程序在并发执行时所付出的时间和空间开销，提高并发性能。<br><strong>进程的状态转换</strong><br>进程包括三种状态：就绪态、运行态和阻塞态。</p>
+<p>1  就绪 —&gt; 执行：对就绪状态的进程，当进程调度程序按一种选定的策略从中选中一个就绪进程，为之分配了处理机后，该进程便由就绪状态变为执行状态；<br>2  执行 —&gt; 阻塞：正在执行的进程因发生某等待事件而无法执行，则进程由执行状态变为阻塞状态，如进程提出输入/输出请求而变成等待外部设备传输信息的状态，进程申请资源（主存空间或外部设备）得不到满足时变成等待资源状态，进程运行中出现了故障（程序出错或主存储器读写错等）变成等待干预状态等等；<br>3  阻塞 —&gt; 就绪：处于阻塞状态的进程，在其等待的事件已经发生，如输入/输出完成，资源得到满足或错误处理完毕时，处于等待状态的进程并不马上转入执行状态，而是先转入就绪状态，然后再由系统进程调度程序在适当的时候将该进程转为执行状态；<br>4  执行 —&gt; 就绪：正在执行的进程，因时间片用完而被暂停执行，或在采用抢先式优先级调度算法的系统中,当有更高优先级的进程要运行而被迫让出处理机时，该进程便由执行状态转变为就绪状态。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/02/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B/">展开全文 >></a>
         </p>
       
 
@@ -843,201 +991,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-浅谈RabbitMQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/">浅谈RabbitMQ</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/" class="archive-article-date">
-  	<time datetime="2020-07-01T08:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>什么是消息中间件</strong>？</p>
-<p>    消息中间件利用高效可靠的消息传递机制进行平台无关的数据交流，并基于数据通信来进行 分布式系统 的集成。通过提供消息传递和消息排队模型，它可以在分布式环境下扩展进程间的通信</p>
-<p><strong>消息中间件引出产生背景</strong></p>
-<p><strong>一、系统之间接口耦合比较严重<br>系统之间直接调用实际工程落地和存在问题</strong><br>    微服务架构后，链式调用是我们在写程序时候的一般流程，为了完成一个整体功能会将其拆分成多个函数（或子模块），比如模块 A 调用模块 B，模块 B 调用模块 C，模块 C 调用模块 D。但在大型分布式应用中，系统间的 RPC 交互繁杂，一个功能背后要调用上百个接口并非不可能，从单机架构过渡到分布式服务架构的通例，这种架构会有哪些问题？</p>
-<p><strong>系统之间接口耦合比较严重</strong><br>每新增一个下游功能，都要对上有相关接口进行改造；</p>
-<p>举个例子：假如系统 A 要发送数据给系统 B 和 C，发送给每个系统的数据可能有差异，因此系统 A 对要发送给每个系统的数据进行了组装，然后逐一发送；</p>
-<p>当代码上线后又新增了一个需求：</p>
-<p>把数据也发送给 D，新上了一个 D 系统也要接受 A 系统的数据，此时需要修改 A 系统，让它感知到 D 的存在，同时把数据处理好 A 再给 D。在这个过程中你会发现，每接入一个下游系统，都要对 A 系统进行代码改造，开发联调的效率很低。其整体架构如下图<br><img src="https://img-blog.csdnimg.cn/2020050220071784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dvb19ob21l,size_16,color_FFFFFF,t_70" alt="enter description here"><br><strong>二、面对大流量并发时，容易被冲垮</strong></p>
-<p>每个接口模块的吞吐量能力是有限的，这个上限能力如果堤坝，当大流量（洪水）来临时，容易被冲垮</p>
-<p>举个例子秒杀业务：</p>
-<p>上游系统发起下单购买操作，就是下单一个操作</p>
-<p>下游系统完成秒杀业务逻辑<br>（读取订单、库存检查、库存冻结、余额检查、余额冻结、订单生成、余额扣减、库存扣减、生成流水、余额解冻、库存解冻）</p>
-        
-          <a class="article-more-a" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">消息中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/01/%E6%B5%85%E8%B0%88RabbitMQ/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SQL语句学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/">SQL语句学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-06-11T09:20:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>创建school数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database school;</span><br><span class="line">use school;</span><br></pre></td></tr></table></figure>
-
-<p>创建四张表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">create table student(</span><br><span class="line">    s_id varchar(10),</span><br><span class="line">    s_name varchar(20),</span><br><span class="line">    s_age date,</span><br><span class="line">    s_sex varchar(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table course(</span><br><span class="line">    c_id varchar(10),</span><br><span class="line">    c_name varchar(20),</span><br><span class="line">    t_id varchar(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create table teacher (</span><br><span class="line">t_id varchar(10),</span><br><span class="line">t_name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table score (</span><br><span class="line">    s_id varchar(10),</span><br><span class="line">    c_id varchar(10),</span><br><span class="line">    score varchar(10)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>往表里插值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">insert into student (s_id, s_name, s_age, s_sex)</span><br><span class="line">values  (&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;);</span><br><span class="line"></span><br><span class="line">insert into course (c_id, c_name, t_id)</span><br><span class="line">values  (&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;);</span><br><span class="line"></span><br><span class="line">insert into teacher (t_id, t_name)</span><br><span class="line">values  (&#39;01&#39; , &#39;张三&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;李四&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;王五&#39;);</span><br><span class="line"></span><br><span class="line">insert into score (s_id, c_id, score)</span><br><span class="line">values  (&#39;01&#39; , &#39;01&#39; , 80),</span><br><span class="line">        (&#39;01&#39; , &#39;02&#39; , 90),</span><br><span class="line">        (&#39;01&#39; , &#39;03&#39; , 99),</span><br><span class="line">        (&#39;02&#39; , &#39;01&#39; , 70),</span><br><span class="line">        (&#39;02&#39; , &#39;02&#39; , 60),</span><br><span class="line">        (&#39;02&#39; , &#39;03&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;01&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;02&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;03&#39; , 80),</span><br><span class="line">        (&#39;04&#39; , &#39;01&#39; , 50),</span><br><span class="line">        (&#39;04&#39; , &#39;02&#39; , 30),</span><br><span class="line">        (&#39;04&#39; , &#39;03&#39; , 20),</span><br><span class="line">        (&#39;05&#39; , &#39;01&#39; , 76),</span><br><span class="line">        (&#39;05&#39; , &#39;02&#39; , 87),</span><br><span class="line">        (&#39;06&#39; , &#39;01&#39; , 31),</span><br><span class="line">        (&#39;06&#39; , &#39;03&#39; , 34),</span><br><span class="line">        (&#39;07&#39; , &#39;02&#39; , 89),</span><br><span class="line">        (&#39;07&#39; , &#39;03&#39; , 98);</span><br></pre></td></tr></table></figure>
-
-<p>看下建好的四张表</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy05NTBhN2E0NTc4YjQyZjAwLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzY0Ni9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt="四张表"></p>
-<p>创建一张总总表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create table total(</span><br><span class="line">select a.s_id as s_id,a.s_name as s_name,a.s_age as s_age,a.s_sex as s_sex,</span><br><span class="line">b.c_id as c_id,b.score as score,c.t_id as t_id,d.t_name as t_name</span><br><span class="line">from student a</span><br><span class="line">left join</span><br><span class="line">score  b on a.s_id&#x3D;b.s_id</span><br><span class="line">left join</span><br><span class="line">course c on b.c_id&#x3D;c.c_id</span><br><span class="line">left join</span><br><span class="line">teacher d on c.t_id&#x3D;d.t_id</span><br><span class="line">);</span><br><span class="line">select * from total;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy04YmNlNmU3ZTA1OGY5Zjk4LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzM5MC9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt="学生课程成绩查询总表total"><br><strong>1、查询”01”课程比”02”课程成绩高的学生的信息及课程分数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select a.s_id as s_id,score1,score2 from</span><br><span class="line">(select s_id, score as score1 from score where c_id&#x3D;&#39;01&#39;) a</span><br><span class="line">inner join</span><br><span class="line">(select s_id, score as score2 from score where c_id&#x3D;&#39;02&#39;) b</span><br><span class="line">on a.s_id&#x3D;b.s_id</span><br><span class="line">where score1&gt;score2;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1jM2E2N2FkOWNjZmViYzYyLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzE0Ny9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>2、查询”01”课程比”02”课程成绩低的学生的信息及课程分数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select a.s_id as s_id,score1,score2 from</span><br><span class="line">(select s_id, score as score1 from score where c_id&#x3D;&#39;01&#39;) a</span><br><span class="line">inner join</span><br><span class="line">(select s_id, score as score2 from score where c_id&#x3D;&#39;02&#39;) b</span><br><span class="line">on a.s_id&#x3D;b.s_id</span><br><span class="line">where score1&lt;score2;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy02OWMxNGZiZDhhYmE1MTc0LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzE0Ny9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt></p>
-<p><strong>3、查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select student.s_id as s_id,student.s_name as s_name,b.avg_score as avg_score from student </span><br><span class="line">right join </span><br><span class="line">(select s_id,avg(score) as avg_score from score</span><br><span class="line">group by s_id having avg_score&gt;60) b</span><br><span class="line">on student.s_id&#x3D;b.s_id;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1hZGNhMWQyZWVlODRjOTE3LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIxNy9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>4、查询平均成绩小于60分的同学的学生编号和学生姓名和平均成绩</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select student.s_id as s_id,student.s_name as s_name,b.avg_score as avg_score from student </span><br><span class="line">right join </span><br><span class="line">(select s_id,avg(score) as avg_score from score</span><br><span class="line">group by s_id having avg_score&lt;60) b</span><br><span class="line">on student.s_id&#x3D;b.s_id;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1lZDM3NTE5ZmMwYWNjZDM1LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIyNS9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>5、查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select s_id, s_name, count(c_id) as c_num, sum(score) as total_score</span><br><span class="line">from total</span><br><span class="line">group by s_id ;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy04N2FiNGI5ZTJhMmI2MDJhLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIyMS9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>6、查询”李”姓老师的数量</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(t_name) from teacher</span><br><span class="line">where t_name like &#39;李%&#39;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1kMTcyOWMwNjc0YjIyMWM3LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93Lzk4L2Zvcm1hdC93ZWJw?x-oss-process=image/format,png" alt><br><strong>7、查询学过”张三”老师授课的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select distinct s_id,s_name,s_age,s_sex</span><br><span class="line">from total</span><br><span class="line">where t_name&#x3D;&#39;张三&#39;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1jNmNkNDYxMDFjNWFjMTU5LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIxOC9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt></p>
-<p><strong>8、查询没学过”张三”老师授课的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from student</span><br><span class="line">where s_id not in</span><br><span class="line">(select distinct s_id</span><br><span class="line">from total</span><br><span class="line">where t_name&#x3D;&#39;张三&#39;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1hMzJiOGMwY2UwYWE0NDRlLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIyMS9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>9、查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from student</span><br><span class="line">where s_id in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;01&#39;)</span><br><span class="line">and s_id in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;02&#39;);</span><br></pre></td></tr></table></figure>
-<p><strong>10、查询学过编号为”01”但是没有学过编号为”02”的课程的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from student</span><br><span class="line">where s_id in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;01&#39;)</span><br><span class="line">and s_id not in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;02&#39;);</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
