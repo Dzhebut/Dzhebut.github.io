@@ -154,6 +154,101 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CPU缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/09/CPU%E7%BC%93%E5%AD%98/">CPU缓存</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/09/CPU%E7%BC%93%E5%AD%98/" class="archive-article-date">
+  	<time datetime="2020-09-09T02:09:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: CPU缓存<br>date: 2020-09-09 10:09:50<br>tags:</p>
+<ul>
+<li>操作系让</li>
+</ul>
+<hr>
+<p><strong>CPU缓存</strong>（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存中调用，从而加快读取速度。<br>CPU缓存的容量比内存小的多但是交换速度却比内存要快得多。缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。　 </p>
+<p>缓存大小是CPU的重要指标之一，而且缓存的结构和大小对CPU速度的影响非常大，CPU内缓存的运行频率极高，一般是和处理器同频运作，工作效率远远大于系统内存和硬盘。实际工作时，CPU往往需要重复读取同样的数据块，而缓存容量的增大，可以大幅度提升CPU内部读取数据的命中率，而不用再到内存或者硬盘上寻找，以此提高系统性能。但是从CPU芯片面积和成本的因素来考虑，缓存都很小。</p>
+<p>按照数据读取顺序和与CPU结合的紧密程度，CPU缓存可以分为一级缓存，二级缓存，部分高端CPU还具有三级缓存，每一级缓存中所储存的全部数据都是下一级缓存的一部分，这三种缓存的技术难度和制造成本是相对递减的，所以其容量也是相对递增的。当CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找。一般来说，每级缓存的命中率大概都在80%左右，也就是说全部数据量的80%都可以在一级缓存中找到，只剩下20%的总数据量才需要从二级缓存、三级缓存或内存中读取，由此可见一级缓存是整个CPU缓存架构中最为重要的部分。<br><strong>一级缓存、二级缓存、三级缓存区别是什么</strong><br>一级缓存、二级缓存、三级缓存是什么？作用？区别？ 首先简单了解一下一级缓存。目前所有主流处理器大都具有一级缓存和二级缓存，少数高端处理器还集成了三级缓存。其中，一级缓存可分为一级指令缓存和一级数据缓存。一级指令缓存用于暂时存储并向CPU递送各类运算指令；一级数据缓存用于暂时存储并向CPU递送运算所需数据，这就是一级缓存的作用。 那么，二级缓存的作用又是什么呢？简单地说，二级缓存就是一级缓存的缓冲器：一级缓存制造成本很高因此它的容量有限，二级缓存的作用就是存储那些CPU处理时需要用到、一级缓存又无法存储的数据。同样道理，三级缓存和内存可以看作是二级缓存的缓冲器，它们的容量递增，但单位制造成本却递减。</p>
+<p>　　需要注意的是，无论是二级缓存、三级缓存还是内存都不能存储处理器操作的原始指令，这些指令只能存储在CPU的一级指令缓存中，而余下的二级缓存、三级缓存和内存仅用于存储CPU所需数据。 根据工作原理的不同，目前主流处理器所采用的一级数据缓存又可以分为实数据读写缓存和数据代码指令追踪缓存2种，它们分别被AMD和Intel所采用。不同的一级数据缓存设计对于二级缓存容量的需求也各不相同，下面让我们简单了解一下这两种一级数据缓存设计的不同之处。</p>
+<p>　　一、AMD一级数据缓存设计 AMD采用的一级缓存设计属于传统的“实数据读写缓存”设计。基于该架构的一级数据缓存主要用于存储CPU最先读取的数据；而更多的读取数据则分别存储在二级缓存和系统内存当中。做个简单的假设，假如处理器需要读取“AMD ATHLON 64 3000+ IS GOOD”这一串数据（不记空格），那么首先要被读取的“AMDATHL”将被存储在一级数据缓存中，而余下的“ON643000+ISGOOD”则被分别存储在二级缓存和系统内存当中（如下图所示）。 需要注意的是，以上假设只是对AMD处理器一级数据缓存的一个抽象描述，一级数据缓存和二级缓存所能存储的数据长度完全由缓存容量的大小决定，而绝非以上假设中的几个字节。“实数据读写缓存”的优点是数据读取直接快速，但这也需要一级数据缓存具有一定的容量，增加了处理器的制造难度（一级数据缓存的单位制造成本较二级缓存高）。</p>
+<p>　　二、Intel一级数据缓存设计 自P4时代开始，Intel开始采用全新的“数据代码指令追踪缓存”设计。基于这种架构的一级数据缓存不再存储实际的数据，而是存储这些数据在二级缓存中的指令代码（即数据在二级缓存中存储的起始地址）。假设处理器需要读取“INTEL P4 IS GOOD”这一串数据（不记空格），那么所有数据将被存储在二级缓存中，而一级数据代码指令追踪缓存需要存储的仅仅是上述数据的起始地址。</p>
+<p>　　由于一级数据缓存不再存储实际数据，因此“数据代码指令追踪缓存”设计能够极大地降CPU对一级数据缓存容量的要求，降低处理器的生产难度。但这种设计的弊端在于数据读取效率较“实数据读写缓存设计”低，而且对二级缓存容量的依赖性非常大。 在了解了一级缓存、二级缓存的大致作用及其分类以后，下面我们来回答以下硬件一菜鸟网友提出的问题。</p>
+<p>　　从理论上讲，二级缓存越大处理器的性能越好，但这并不是说二级缓存容量加倍就能够处理器带来成倍的性能增长。目前CPU处理的绝大部分数据的大小都在0-256KB之间，小部分数据的大小在256KB-512KB之间，只有极少数数据的大小超过512KB。所以只要处理器可用的一级、二级缓存容量达到256KB以上，那就能够应付正常的应用；512KB容量的二级缓存已经足够满足绝大多数应用的需求。 这其中，对于采用“实数据读写缓存”设计的AMD Athlon 64、Sempron处理器而言，由于它们已经具备了64KB一级指令缓存和64KB一级数据缓存，只要处理器的二级缓存容量大于等于128KB就能够存储足够的数据和指令，因此它们对二级缓存的依赖性并不大。这就是为什么主频同为1.8GHz的Socket 754 Sempron 3000+（128KB二级缓存）、Sempron 3100+（256KB二级缓存）以及Athlon 64 2800+（512KB二级缓存）在大多数评测中性能非常接近的主要原因。所以对于普通用户而言754 Sempron 2600+是值得考虑的。 反观Intel目前主推的P4、赛扬系列处理器，它们都采用了“数据代码指令追踪缓存”架构，其中Prescott内核的一级缓存中只包含了12KB一级指令缓存和16KB一级数据缓存，而Northwood内核更是只有12KB一级指令缓存和8KB一级数据缓存。</p>
+<p>　　因此，P4、赛隆系列处理器非常依赖于二级缓存，赛扬D 320（256KB二级缓存）和赛扬2.4GHz（128kb二级缓存）的性能差距是很好的证明；Cayon D和P4E处理器之间的性能差距也非常明显。最后，如果你是一个狂热的游戏爱好者或者一个专业的多媒体用户，一个带有1MB二级缓存的P4处理器和一个512Kb/1MB二级缓存的Athon 64处理器是你的理想选择。由于CPU的主存和二级缓存在重计算负载下几乎是“满”的，大的二级缓存可以为处理器提供大约5%到10%的性能改进，这对于要求苛刻的用户是绝对必要的。一级缓存是在CPU内的，用来存放内部指令，2级缓存和CPU封装在一起，也是用来存放指令数据的，三级和四级缓存只在高端的服务器CPU里有，作用差不多，速度更快，更稳定，更有效 并不是缓存越大越好，譬如AMD和INTER就有不同的理论，AMD认为一级缓存越大越好，所以一级比较大，而INTER认为过大会有更长的指令执行时间，所以一级很小，二级缓存那两个公司的理论又反过来了，AMD的小，INTER的大，一般主流的INTERCPU的2级缓存都在2M左右 我们通常用（L1，L2）来称呼缓存又叫高速缓冲存储器其作用在于缓解主存速度慢、跟不上CPU读写速度要求的矛盾。它的实现原理，是把CPU最近最可能用到的少量信息（数据或指令）从主存复制到CACHE中，当CPU下次再用这些信息时，它就不必访问慢速的主存，而直接从快速的CACHE中得到，从而提高了得到这些信息的速度，使CPU有更高的运行效率。<br>  <strong>缓存的大小</strong><br>  一般说来，更大一点的cache容量，对提高命中率是有好处的，如图4.20所示，由于cache 是用价格很高的静态存储器SRAM器件实现的，而cache容量达到一定大小这后，再增加其容量，对命中率的提高并不明显，从合理的性能／价格比考虑，cache的容量设置应在一个合理的容量范围之内。缓存要分一级二级 三级，是为了建立一个层次存储结构，以达到最高性价比。而且多级组织还可以提高cache的命中率，提高执行效能。</p>
+<p>　　CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可避开内存直接从缓存中调用，从而加快读取速度。由此可见，在CPU中加入缓存是一种高效的解决方案，这样整个内存储器（缓存+内存）就变成了既有缓存的高速度，又有内存的大容量的存储系统了。缓存对CPU的性能影响很大，主要是因为CPU的数据交换顺序和CPU与缓存间的带宽引起的。 缓存的工作原理是当CPU要读取一个数据时，首先从缓存中查找，如果找到就立即读取并送给CPU处理；如果没有找到，就用相对慢的速度从内存中读取并送给CPU处理，同时把这个数据所在的数据块调入缓存中，可以使得以后对整块数据的读取都从缓存中进行，不必再调用内存。 正是这样的读取机制使CPU读取缓存的命中率非常高（大多数CPU可达90%左右），也就是说CPU下一次要读取的数据90%都在缓存中，只有大约10%需要从内存读取。</p>
+<p>　　这大大节省了CPU直接读取内存的时间，也使CPU读取数据时基本无需等待。总的来说，CPU读取数据的顺序是先缓存后内存。 目前缓存基本上都是采用SRAM存储器，SRAM是英文Static RAM的缩写，它是一种具有静志存取功能的存储器，不需要刷新电路即能保存它内部存储的数据。不像DRAM内存那样需要刷新电路，每隔一段时间，固定要对DRAM刷新充电一次，否则内部的数据即会消失，因此SRAM具有较高的性能，但是SRAM也有它的缺点，即它的集成度较低，相同容量的DRAM内存可以设计为较小的体积，但是SRAM却需要很大的体积，这也是目前不能将缓存容量做得太大的重要原因。</p>
+<p>　　它的特点归纳如下：优点是节能、速度快、不必配合内存刷新电路、可提高整体的工作效率，缺点是集成度低、相同的容量体积较大、而且价格较高，只能少量用于关键性系统以提高效率。 按照数据读取顺序和与CPU结合的紧密程度，CPU缓存可以分为一级缓存，二级缓存，部分高端CPU还具有三级缓存，每一级缓存中所储存的全部数据都是下一级缓存的一部分，这三种缓存的技术难度和制造成本是相对递减的，所以其容量也是相对递增的。当CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找。一般来说，每级缓存的命中率大概都在80%左右，也就是说全部数据量的80%都可以在一级缓存中找到，只剩下20%的总数据量才需要从二级缓存、三级缓存或内存中读取，由此可见一级缓存是整个CPU缓存架构中最为重要的部分。 </p>
+<p>　　一级缓存（Level 1 Cache）简称L1 Cache，位于CPU内核的旁边，是与CPU结合最为紧密的CPU缓存，也是历史上最早出现的CPU缓存。由于一级缓存的技术难度和制造成本最高，提高容量所带来的技术难度增加和成本增加非常大，所带来的性能提升却不明显，性价比很低，而且现有的一级缓存的命中率已经很高，所以一级缓存是所有缓存中容量最小的，比二级缓存要小得多。一般来说，一级缓存可以分为一级数据缓存（Data Cache，D-Cache）和一级指令缓存（Instruction Cache，I-Cache）。二者分别用来存放数据以及对执行这些数据的指令进行即时解码，而且两者可以同时被CPU访问，减少了争用Cache所造成的冲突，提高了处理器效能。目前大多数CPU的一级数据缓存和一级指令缓存具有相同的容量，例如AMD的Athlon XP就具有64KB的一级数据缓存和64KB的一级指令缓存，其一级缓存就以64KB+64KB来表示，其余的CPU的一级缓存表示方法以此类推。</p>
+<p>　　 Intel的采用NetBurst架构的CPU（最典型的就是Pentium 4）的一级缓存有点特殊，使用了新增加的一种一级追踪缓存（Execution Trace Cache，T-Cache或ETC）来替代一级指令缓存，容量为12KμOps，表示能存储12K条即12000条解码后的微指令。一级追踪缓存与一级指令缓存的运行机制是不相同的，一级指令缓存只是对指令作即时的解码而并不会储存这些指令，而一级追踪缓存同样会将一些指令作解码，这些指令称为微指令（micro-ops），而这些微指令能储存在一级追踪缓存之内，无需每一次都作出解码的程序，因此一级追踪缓存能有效地增加在高工作频率下对指令的解码能力，而μOps就是micro-ops，也就是微型操作的意思。它以很高的速度将μops提供给处理器核心。Intel NetBurst微型架构使用执行跟踪缓存，将解码器从执行循环中分离出来。</p>
+<p>　　这个跟踪缓存以很高的带宽将uops提供给核心，从本质上适于充分利用软件中的指令级并行机制。Intel并没有公布一级追踪缓存的实际容量，只知道一级追踪缓存能储存12000条微指令（micro-ops）。所以，我们不能简单地用微指令的数目来比较指令缓存的大小。实际上，单核心的NetBurst架构CPU使用8Kμops的缓存已经基本上够用了，多出的4kμops可以大大提高缓存命中率。而如果要使用超线程技术的话，12KμOps就会有些不够用，这就是为什么有时候Intel处理器在使用超线程技术时会导致性能下降的重要原因。</p>
+<p>　　 例如Northwood核心的一级缓存为8KB+12KμOps，就表示其一级数据缓存为8KB，一级追踪缓存为12KμOps；而Prescott核心的一级缓存为16KB+12KμOps，就表示其一级数据缓存为16KB，一级追踪缓存为12KμOps。在这里12KμOps绝对不等于12KB，单位都不同，一个是μOps，一个是Byte（字节），而且二者的运行机制完全不同。所以那些把Intel的CPU一级缓存简单相加，例如把Northwood核心说成是20KB一级缓存，把Prescott核心说成是28KB一级缓存，并且据此认为Intel处理器的一级缓存容量远远低于AMD处理器128KB的一级缓存容量的看法是完全错误的，二者不具有可比性。在架构有一定区别的CPU对比中，很多缓存已经难以找到对应的东西，即使类似名称的缓存在设计思路和功能定义上也有区别了，此时不能用简单的算术加法来进行对比；而在架构极为近似的CPU对比中，分别对比各种功能缓存大小才有一定的意义。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系让</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/09/CPU%E7%BC%93%E5%AD%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-物理地址、逻辑地址、虚拟内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -199,6 +294,85 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/08/%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E3%80%81%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80%E3%80%81%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LRU算法的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/LRU%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3/">LRU算法的理解</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/07/LRU%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-09-07T08:25:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LRU（Least recently used，最近最少使用）算法作为内存管理的一种有效算法，其含义是在内存有限的情况下，当内存容量不足时，为了保证程序的运行，这时就不得不淘汰内存中的一些对象，释放这些对象占用的空间，那么选择淘汰哪些对象呢？</p>
+<p>LRU算法就提供了一种策略，告诉我们选择最近一段时间内，最久未使用的对象将其淘汰，至于为什么要选择最久未使用的,因为其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。</p>
+<p><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1654644903,1904542392&fm=173&app=25&f=JPEG?w=640&h=487&s=3F867722D7237F09084F566A0300A078" alt="lru算法演示"><br>1、最开始时，内存空间是空的，因此依次进入A、B、C是没有问题的。</p>
+<p>2、当加入D时，就出现了问题，内存空间不够了，因此根据LRU算法，内存空间中A待的时间最为久远，选择A，将其淘汰。</p>
+<p>3、当再次引用B时，内存空间中的B又处于活跃状态，而C则变成了内存空间中，近段时间最久未使用的。</p>
+<p>4、当再次向内存空间加入E时，这时内存空间又不足了，选择在内存空间中待的最久的C将其淘汰出内存，这时的内存空间存放的对象就是E-&gt;B-&gt;D。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/07/LRU%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3/">展开全文 >></a>
         </p>
       
 
@@ -802,181 +976,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-海量数据中TopK问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/07/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%B8%ADTopK%E9%97%AE%E9%A2%98/">海量数据中TopK问题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/07/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%B8%ADTopK%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-07-07T14:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1. 抛出问题</strong><br>在大规模数据处理中，经常会遇到的一类问题：在海量数据中找出出现频率最好的前k个数，或者从海量数据中找出最大的前k个数，这类问题通常被称为top K问题。例如，在搜索引擎中，统计搜索最热门的10个查询词；在歌曲库中统计下载最高的前10首歌等。<br>针对top K类问题，通常比较好的方案是分治+Trie树/hash+小顶堆（就是上面提到的最小堆），即先将数据集按照Hash方法分解成多个小数据集，然后使用Trie树活着Hash统计每个小数据集中的query词频，之后用小顶堆求出每个数据集中出现频率最高的前K个数，最后在所有top K中求出最终的top K。<br><strong>eg：有1亿个浮点数，如何找出其中最大的10000个？</strong></p>
-<p><strong>2. 如何解决<br>1）全局排序法</strong></p>
-<p>这是最容易想到的方法，将数据全部排序，然后在排序后的集合中进行查找，最快的排序算法的时间复杂度一般为O（nlogn），如快速排序。</p>
-<p>但是在32位的机器上，每个float类型占4个字节，1亿个浮点数就要占用400MB的存储空间，对于一些可用内存小于400M的计算机而言，很显然是不能一次将全部数据读入内存进行排序的。其实即使内存能够满足要求（我机器内存都是8GB），该方法也并不高效，因为题目的目的是寻找出最大的10000个数即可，而排序却是将所有的元素都排序了，做了很多的无用功。</p>
-<p><strong>2）局部淘汰法</strong></p>
-<p>该方法与全局排序法类似，用一个容器保存前10000个数，然后将剩余的所有数字——与容器内的最小数字相比，如果所有后续的元素都比容器内的10000个数还小，那么容器内这个10000个数就是最大10000个数。如果某一后续元素比容器内最小数字大，则删掉容器内最小元素，并将该元素插入容器，最后遍历完这1亿个数，得到的结果容器中保存的数即为最终结果了。此时的时间复杂度为O（n+m^2），其中m为容器的大小，即10000。</p>
-<p><strong>3）分治法</strong></p>
-<p>将1亿个数据分成100份，每份100万个数据，找到每份数据中最大的10000个，最后在剩下的100*10000个数据里面找出最大的10000个。如果100万数据选择足够理想，那么可以过滤掉1亿数据里面99%的数据。</p>
-<p>100万个数据里面查找最大的10000个数据的方法如下：用快速排序的方法，将数据分为2堆，如果大的那堆个数N大于10000个，继续对大堆快速排序一次分成2堆，如果大的那堆个数N大于10000个，继续对大堆快速排序一次分成2堆，如果大堆个数N小于10000个，就在小的那堆里面快速排序一次，找第10000-n大的数字；递归以上过程，就可以找到第1w大的数。参考上面的找出第1w大数字，就可以类似的方法找到前10000大数字了。此种方法需要每次的内存空间为10^6*4=4MB，一共需要101次这样的比较。</p>
-<p><strong>4）Hash法</strong></p>
-<p>如果这1亿个书里面有很多重复的数，先通过Hash法，把这1亿个数字去重复，这样如果重复率很高的话，会减少很大的内存用量，从而缩小运算空间，然后通过分治法或最小堆法查找最大的10000个数。</p>
-<p><strong>5）最小堆法</strong></p>
-<p>这种方法采用最小堆，即小顶堆（传送门：小顶堆在java中的优雅实现）。</p>
-<p>首先读入前10000个数来创建大小为10000的最小堆，建堆的时间复杂度为O（mlogm）（m为数组的大小即为10000），然后遍历后续的数字，并于堆顶（最小）数字进行比较。如果比最小的数小，则继续读取后续数字；如果比堆顶数字大，则替换堆顶元素并重新调整堆为最小堆。整个过程直至1亿个数全部遍历完为止。然后按照中序遍历的方式输出当前堆中的所有10000个数字。该算法的时间复杂度为O（nmlogm），空间复杂度是10000（常数）。</p>
-<p><strong>3. 得出方案</strong><br>先拿10000个数建小顶堆，然后一次添加剩余元素，如果大于堆顶的数（10000中最小的），将这个数替换堆顶，并调整结构使之仍然是一个最小堆，这样，遍历完后，堆中的10000个数就是所需的最大的10000个。建堆时间复杂度是O（mlogm），算法的时间复杂度为O（nmlogm）（n为10亿，m为10000）。</p>
-<p><strong>优化</strong></p>
-<p>把所有1亿个数据分组存放，比如分别放在1000个文件中。这样处理就可以分别在每个文件的10^6个数据中找出最大的10000个数，合并到一起在再找出最终的结果。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">海量数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/07/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%B8%ADTopK%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HashMap引入红黑树问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/">HashMap引入红黑树问题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-07-06T02:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>二叉查找树</strong></p>
-<p>二叉查找树，也称有序二叉树（ordered binary tree），或已排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：</p>
-<p>若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；<br>任意节点的左、右子树也分别为二叉查找树。<br>没有键值相等的节点（no duplicate nodes）。</p>
-<p>因为一棵由n个结点随机构造的二叉查找树的高度为lgn，所以顺理成章，二叉查找树的一般操作的执行时间为O(lgn)。但二叉查找树若退化成了一棵具有n个结点的线性链后，则这些操作最坏情况运行时间为O(n)。</p>
-<p>avl树即平衡树，他对二叉树做了改进，在我们每插入一个节点的时候，必须保证每个节点对应的左子树和右子树的树高度差不超过1。如果超过了就对其进行调平衡，具体的调平衡操作就不在这里讲了，无非就是四个操作——左旋，左旋再右旋，右旋再左旋。<br><img src="https://img-blog.csdnimg.cn/20190410101653494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzI1ODkwOA==,size_16,color_FFFFFF,t_70" alt="enter description here"><br>如图所示，图中M结点就是一个二节点，M左边的EJ节点是一个三节点。依然是大的数据放右边，小的数据放左边。此时我们向该树重如果该数可以直接放入二节点中，就直接进去，但如果正好需要放在三节点中，就像图中一样，Z正好要放在SX中。那么我们需要将该节点分裂成两个节点，并将中间的数提到父节点中去，就像图中将X放在了R旁边。当然如果将子节点提到父节点的时候导致了父节点里的数超过了两个，就继续向上提，直到满足了为止。<br><img src="https://img-blog.csdnimg.cn/20190410101811382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzI1ODkwOA==,size_16,color_FFFFFF,t_70" alt="enter description here"><br>在jdk1.8版本后，java对HashMap做了改进，在链表长度大于8的时候，将后面的数据存在红黑树中，以加快检索速度，我们接下来讲一下红黑树。</p>
-<p>红黑树虽然本质上是一棵二叉查找树，但它在二叉查找树的基础上增加了着色和相关的性质使得红黑树相对平衡，从而保证了红黑树的查找、插入、删除的时间复杂度最坏为O(log n)。加快检索速率。</p>
-        
-          <a class="article-more-a" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashMap</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红黑树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/06/HashMap%E5%BC%95%E5%85%A5%E7%BA%A2%E9%BB%91%E6%A0%91%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1107,6 +1106,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系让</a>
               </li>
             
             <div class="clearfix"></div>
