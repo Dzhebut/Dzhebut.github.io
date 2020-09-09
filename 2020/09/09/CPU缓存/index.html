@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://dzhebut.github.io">
   <title>CPU缓存 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: CPU缓存date: 2020-09-09 10:09:50tags:  操作系让   CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓">
+  <meta name="description" content="CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPU缓存">
 <meta property="og:url" content="https://dzhebut.github.io/2020/09/09/CPU%E7%BC%93%E5%AD%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: CPU缓存date: 2020-09-09 10:09:50tags:  操作系让   CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓">
+<meta property="og:description" content="CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-09T02:09:50.000Z">
-<meta property="article:modified_time" content="2020-09-09T02:14:26.623Z">
+<meta property="article:modified_time" content="2020-09-09T02:37:10.597Z">
 <meta property="article:author" content="Joey Du">
-<meta property="article:tag" content="操作系让">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -177,13 +177,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: CPU缓存<br>date: 2020-09-09 10:09:50<br>tags:</p>
-<ul>
-<li>操作系让</li>
-</ul>
-<hr>
-<p><strong>CPU缓存</strong>（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存中调用，从而加快读取速度。<br>CPU缓存的容量比内存小的多但是交换速度却比内存要快得多。缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。　 </p>
+        <p><strong>CPU缓存</strong>（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存中调用，从而加快读取速度。<br>CPU缓存的容量比内存小的多但是交换速度却比内存要快得多。缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。　 </p>
 <p>缓存大小是CPU的重要指标之一，而且缓存的结构和大小对CPU速度的影响非常大，CPU内缓存的运行频率极高，一般是和处理器同频运作，工作效率远远大于系统内存和硬盘。实际工作时，CPU往往需要重复读取同样的数据块，而缓存容量的增大，可以大幅度提升CPU内部读取数据的命中率，而不用再到内存或者硬盘上寻找，以此提高系统性能。但是从CPU芯片面积和成本的因素来考虑，缓存都很小。</p>
 <p>按照数据读取顺序和与CPU结合的紧密程度，CPU缓存可以分为一级缓存，二级缓存，部分高端CPU还具有三级缓存，每一级缓存中所储存的全部数据都是下一级缓存的一部分，这三种缓存的技术难度和制造成本是相对递减的，所以其容量也是相对递增的。当CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找。一般来说，每级缓存的命中率大概都在80%左右，也就是说全部数据量的80%都可以在一级缓存中找到，只剩下20%的总数据量才需要从二级缓存、三级缓存或内存中读取，由此可见一级缓存是整个CPU缓存架构中最为重要的部分。<br><strong>一级缓存、二级缓存、三级缓存区别是什么</strong><br>一级缓存、二级缓存、三级缓存是什么？作用？区别？ 首先简单了解一下一级缓存。目前所有主流处理器大都具有一级缓存和二级缓存，少数高端处理器还集成了三级缓存。其中，一级缓存可分为一级指令缓存和一级数据缓存。一级指令缓存用于暂时存储并向CPU递送各类运算指令；一级数据缓存用于暂时存储并向CPU递送运算所需数据，这就是一级缓存的作用。 那么，二级缓存的作用又是什么呢？简单地说，二级缓存就是一级缓存的缓冲器：一级缓存制造成本很高因此它的容量有限，二级缓存的作用就是存储那些CPU处理时需要用到、一级缓存又无法存储的数据。同样道理，三级缓存和内存可以看作是二级缓存的缓冲器，它们的容量递增，但单位制造成本却递减。</p>
 <p>　　需要注意的是，无论是二级缓存、三级缓存还是内存都不能存储处理器操作的原始指令，这些指令只能存储在CPU的一级指令缓存中，而余下的二级缓存、三级缓存和内存仅用于存储CPU所需数据。 根据工作原理的不同，目前主流处理器所采用的一级数据缓存又可以分为实数据读写缓存和数据代码指令追踪缓存2种，它们分别被AMD和Intel所采用。不同的一级数据缓存设计对于二级缓存容量的需求也各不相同，下面让我们简单了解一下这两种一级数据缓存设计的不同之处。</p>
@@ -243,7 +237,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系让</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		
 		</ul>
@@ -484,10 +478,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系让</a>
               </li>
             
             <div class="clearfix"></div>
