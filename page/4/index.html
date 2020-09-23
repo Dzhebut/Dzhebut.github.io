@@ -154,6 +154,94 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux下查看CPU、内存、磁盘使用情况" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux下查看CPU、内存、磁盘使用情况</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" class="archive-article-date">
+  	<time datetime="2020-07-11T09:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、查看CPU使用率</strong></p>
+<p>top命令</p>
+<p>top：time of process,查看系统当前的运行情况，查看CPU、内存、运行时间、交换分区、执行的线程等信息。</p>
+<p>top命令是linux下常用的性能分析工具，能够实时的显示系统中各个进程中资源占用情况，类似Windows中的资源管理器。</p>
+<p>参数详解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">     %us：表示用户空间程序的cpu使用率</span><br><span class="line"></span><br><span class="line">     %sy：表示系统空间的cpu使用率，主要是内核程序。</span><br><span class="line"></span><br><span class="line">     %ni：表示用户通过nice调度过的程序的cpu使用率。</span><br><span class="line"></span><br><span class="line">     %id：cpu空闲率，例：<span class="number">92</span>id，表示系统cpu使用率为<span class="number">100</span>%<span class="number">-90</span>%=<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line">     %wa：cpu空闲时等待io的时间</span><br><span class="line"></span><br><span class="line">     %hi：cpu处理硬中断的数量</span><br><span class="line"></span><br><span class="line">     %si：cpu处理软中断的数量</span><br><span class="line"></span><br><span class="line">     %st：被虚拟机偷走的cpu</span><br></pre></td></tr></table></figure>
+
+<p><strong>二、查看内存使用率</strong></p>
+<p>1.top命令</p>
+<p>内存使用率=used/total*100%</p>
+<p>2.free命令</p>
+<p>参考：<a href="http://www.cnblogs.com/black-mamba/p/5918688.html" target="_blank" rel="noopener">http://www.cnblogs.com/black-mamba/p/5918688.html</a></p>
+<p><strong>三、磁盘使用率</strong></p>
+<p>df命令</p>
+<p>磁盘使用率=（used的列之和）/（1k-blocks的列之和）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据库建立索引的一般依据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -154,6 +154,79 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-反转链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-09-10T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ReverseListSolution</span> </span>&#123;</span><br><span class="line">    public <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">        int val;</span><br><span class="line">        ListNode next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        ListNode(int val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//head为当前节点，如果当前节点为空的话，那就什么也不做，直接返回null；</span></span><br><span class="line">        ListNode pre = <span class="literal">null</span>;</span><br><span class="line">        ListNode next = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//当前节点是head，pre为当前节点的前一节点，next为当前节点的下一节点</span></span><br><span class="line">        <span class="comment">//需要pre和next的目的是让当前节点从pre-&gt;head-&gt;next1-&gt;next2变成pre&lt;-head next1-&gt;next2</span></span><br><span class="line">        <span class="comment">//即pre让节点可以反转所指方向，但反转之后如果不用next节点保存next1节点的话，此单链表就此断开了</span></span><br><span class="line">        <span class="comment">//所以需要用到pre和next两个节点</span></span><br><span class="line">        <span class="comment">//1-&gt;2-&gt;3-&gt;4-&gt;5</span></span><br><span class="line">        <span class="comment">//1&lt;-2&lt;-3 4-&gt;5</span></span><br><span class="line">        <span class="keyword">while</span>(head!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//做循环，如果当前节点不为空的话，始终执行此循环，此循环的目的就是让当前节点从指向next到指向pre</span></span><br><span class="line">            <span class="comment">//如此就可以做到反转链表的效果</span></span><br><span class="line">            <span class="comment">//先用next保存head的下一个节点的信息，保证单链表不会因为失去head节点的原next节点而就此断裂</span></span><br><span class="line">            next = head.next;</span><br><span class="line">            <span class="comment">//保存完next，就可以让head从指向next变成指向pre了，代码如下</span></span><br><span class="line">            head.next = pre;</span><br><span class="line">            <span class="comment">//head指向pre后，就继续依次反转下一个节点</span></span><br><span class="line">            <span class="comment">//让pre，head，next依次向后移动一个节点，继续下一次的指针反转</span></span><br><span class="line">            pre = head;</span><br><span class="line">            head = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果head为null的时候，pre就为最后一个节点了，但是链表已经反转完毕，pre就是反转后链表的第一个节点</span></span><br><span class="line">        <span class="comment">//直接输出pre就是我们想要得到的反转后的链表</span></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CPU缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -839,94 +912,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/15/Spring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux下查看CPU、内存、磁盘使用情况" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">Linux下查看CPU、内存、磁盘使用情况</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/" class="archive-article-date">
-  	<time datetime="2020-07-11T09:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>一、查看CPU使用率</strong></p>
-<p>top命令</p>
-<p>top：time of process,查看系统当前的运行情况，查看CPU、内存、运行时间、交换分区、执行的线程等信息。</p>
-<p>top命令是linux下常用的性能分析工具，能够实时的显示系统中各个进程中资源占用情况，类似Windows中的资源管理器。</p>
-<p>参数详解：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">     %us：表示用户空间程序的cpu使用率</span><br><span class="line"></span><br><span class="line">     %sy：表示系统空间的cpu使用率，主要是内核程序。</span><br><span class="line"></span><br><span class="line">     %ni：表示用户通过nice调度过的程序的cpu使用率。</span><br><span class="line"></span><br><span class="line">     %id：cpu空闲率，例：<span class="number">92</span>id，表示系统cpu使用率为<span class="number">100</span>%<span class="number">-90</span>%=<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line">     %wa：cpu空闲时等待io的时间</span><br><span class="line"></span><br><span class="line">     %hi：cpu处理硬中断的数量</span><br><span class="line"></span><br><span class="line">     %si：cpu处理软中断的数量</span><br><span class="line"></span><br><span class="line">     %st：被虚拟机偷走的cpu</span><br></pre></td></tr></table></figure>
-
-<p><strong>二、查看内存使用率</strong></p>
-<p>1.top命令</p>
-<p>内存使用率=used/total*100%</p>
-<p>2.free命令</p>
-<p>参考：<a href="http://www.cnblogs.com/black-mamba/p/5918688.html" target="_blank" rel="noopener">http://www.cnblogs.com/black-mamba/p/5918688.html</a></p>
-<p><strong>三、磁盘使用率</strong></p>
-<p>df命令</p>
-<p>磁盘使用率=（used的列之和）/（1k-blocks的列之和）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/11/Linux%E4%B8%8B%E6%9F%A5%E7%9C%8BCPU%E3%80%81%E5%86%85%E5%AD%98%E3%80%81%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/">展开全文 >></a>
         </p>
       
 
