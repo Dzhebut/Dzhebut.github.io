@@ -154,6 +154,80 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-进程间的通信方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/08/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">进程间的通信方式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/08/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-08-08T07:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>进程间通信（IPC，InterProcess Communication）是指在不同进程之间传播或交换信息。IPC 的方式通常有管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、Socket、Streams 等。其中 Socket 和 Streams 支持不同主机上的两个进程 IPC。<br><strong>管道</strong><br>1 它是半双工的，具有固定的读端和写端；<br>2 它只能用于父子进程或者兄弟进程之间的进程的通信；<br>3 它可以看成是一种特殊的文件，对于它的读写也可以使用普通的 read、write  等函数。但是它不是普通的文件，并不属于其他任何文件系统，并且只存在于内存中。<br><strong>命名管道</strong><br>1 FIFO 可以在无关的进程之间交换数据，与无名管道不同；<br>2 FIFO 有路径名与之相关联，它以一种特殊设备文件形式存在于文件系统中。<br><strong>消息队列</strong><br>1 消息队列，是消息的链接表，存放在内核中。一个消息队列由一个标识符 ID 来标识；<br>2 消息队列是面向记录的，其中的消息具有特定的格式以及特定的优先级；<br>3 消息队列独立于发送与接收进程。进程终止时，消息队列及其内容并不会被删除；<br>4 消息队列可以实现消息的随机查询，消息不一定要以先进先出的次序读取，也可以按消息的类型读取。<br><strong>信号量</strong><br>1 信号量（semaphore）是一个计数器。用于实现进程间的互斥与同步，而不是用于存储进程间通信数据；<br>2 信号量用于进程间同步，若要在进程间传递数据需要结合共享内存；<br>3 信号量基于操作系统的 PV 操作，程序对信号量的操作都是原子操作；<br>4 每次对信号量的 PV 操作不仅限于对信号量值加 1 或减 1，而且可以加减任意正整数；<br>5 支持信号量组。<br><strong>共享内存</strong><br>1 共享内存（Shared Memory），指两个或多个进程共享一个给定的存储区；<br>2 共享内存是最快的一种 IPC，因为进程是直接对内存进行存取。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/08/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-线程和进程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -930,117 +1004,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-SQL语句学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/">SQL语句学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-06-11T09:20:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>创建school数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database school;</span><br><span class="line">use school;</span><br></pre></td></tr></table></figure>
-
-<p>创建四张表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">create table student(</span><br><span class="line">    s_id varchar(10),</span><br><span class="line">    s_name varchar(20),</span><br><span class="line">    s_age date,</span><br><span class="line">    s_sex varchar(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table course(</span><br><span class="line">    c_id varchar(10),</span><br><span class="line">    c_name varchar(20),</span><br><span class="line">    t_id varchar(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create table teacher (</span><br><span class="line">t_id varchar(10),</span><br><span class="line">t_name varchar(20)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create table score (</span><br><span class="line">    s_id varchar(10),</span><br><span class="line">    c_id varchar(10),</span><br><span class="line">    score varchar(10)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>往表里插值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">insert into student (s_id, s_name, s_age, s_sex)</span><br><span class="line">values  (&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;),</span><br><span class="line">        (&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;),</span><br><span class="line">        (&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;);</span><br><span class="line"></span><br><span class="line">insert into course (c_id, c_name, t_id)</span><br><span class="line">values  (&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;);</span><br><span class="line"></span><br><span class="line">insert into teacher (t_id, t_name)</span><br><span class="line">values  (&#39;01&#39; , &#39;张三&#39;),</span><br><span class="line">        (&#39;02&#39; , &#39;李四&#39;),</span><br><span class="line">        (&#39;03&#39; , &#39;王五&#39;);</span><br><span class="line"></span><br><span class="line">insert into score (s_id, c_id, score)</span><br><span class="line">values  (&#39;01&#39; , &#39;01&#39; , 80),</span><br><span class="line">        (&#39;01&#39; , &#39;02&#39; , 90),</span><br><span class="line">        (&#39;01&#39; , &#39;03&#39; , 99),</span><br><span class="line">        (&#39;02&#39; , &#39;01&#39; , 70),</span><br><span class="line">        (&#39;02&#39; , &#39;02&#39; , 60),</span><br><span class="line">        (&#39;02&#39; , &#39;03&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;01&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;02&#39; , 80),</span><br><span class="line">        (&#39;03&#39; , &#39;03&#39; , 80),</span><br><span class="line">        (&#39;04&#39; , &#39;01&#39; , 50),</span><br><span class="line">        (&#39;04&#39; , &#39;02&#39; , 30),</span><br><span class="line">        (&#39;04&#39; , &#39;03&#39; , 20),</span><br><span class="line">        (&#39;05&#39; , &#39;01&#39; , 76),</span><br><span class="line">        (&#39;05&#39; , &#39;02&#39; , 87),</span><br><span class="line">        (&#39;06&#39; , &#39;01&#39; , 31),</span><br><span class="line">        (&#39;06&#39; , &#39;03&#39; , 34),</span><br><span class="line">        (&#39;07&#39; , &#39;02&#39; , 89),</span><br><span class="line">        (&#39;07&#39; , &#39;03&#39; , 98);</span><br></pre></td></tr></table></figure>
-
-<p>看下建好的四张表</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy05NTBhN2E0NTc4YjQyZjAwLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzY0Ni9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt="四张表"></p>
-<p>创建一张总总表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create table total(</span><br><span class="line">select a.s_id as s_id,a.s_name as s_name,a.s_age as s_age,a.s_sex as s_sex,</span><br><span class="line">b.c_id as c_id,b.score as score,c.t_id as t_id,d.t_name as t_name</span><br><span class="line">from student a</span><br><span class="line">left join</span><br><span class="line">score  b on a.s_id&#x3D;b.s_id</span><br><span class="line">left join</span><br><span class="line">course c on b.c_id&#x3D;c.c_id</span><br><span class="line">left join</span><br><span class="line">teacher d on c.t_id&#x3D;d.t_id</span><br><span class="line">);</span><br><span class="line">select * from total;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy04YmNlNmU3ZTA1OGY5Zjk4LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzM5MC9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt="学生课程成绩查询总表total"><br><strong>1、查询”01”课程比”02”课程成绩高的学生的信息及课程分数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select a.s_id as s_id,score1,score2 from</span><br><span class="line">(select s_id, score as score1 from score where c_id&#x3D;&#39;01&#39;) a</span><br><span class="line">inner join</span><br><span class="line">(select s_id, score as score2 from score where c_id&#x3D;&#39;02&#39;) b</span><br><span class="line">on a.s_id&#x3D;b.s_id</span><br><span class="line">where score1&gt;score2;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1jM2E2N2FkOWNjZmViYzYyLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzE0Ny9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>2、查询”01”课程比”02”课程成绩低的学生的信息及课程分数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select a.s_id as s_id,score1,score2 from</span><br><span class="line">(select s_id, score as score1 from score where c_id&#x3D;&#39;01&#39;) a</span><br><span class="line">inner join</span><br><span class="line">(select s_id, score as score2 from score where c_id&#x3D;&#39;02&#39;) b</span><br><span class="line">on a.s_id&#x3D;b.s_id</span><br><span class="line">where score1&lt;score2;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy02OWMxNGZiZDhhYmE1MTc0LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzE0Ny9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt></p>
-<p><strong>3、查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select student.s_id as s_id,student.s_name as s_name,b.avg_score as avg_score from student </span><br><span class="line">right join </span><br><span class="line">(select s_id,avg(score) as avg_score from score</span><br><span class="line">group by s_id having avg_score&gt;60) b</span><br><span class="line">on student.s_id&#x3D;b.s_id;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1hZGNhMWQyZWVlODRjOTE3LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIxNy9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>4、查询平均成绩小于60分的同学的学生编号和学生姓名和平均成绩</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select student.s_id as s_id,student.s_name as s_name,b.avg_score as avg_score from student </span><br><span class="line">right join </span><br><span class="line">(select s_id,avg(score) as avg_score from score</span><br><span class="line">group by s_id having avg_score&lt;60) b</span><br><span class="line">on student.s_id&#x3D;b.s_id;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1lZDM3NTE5ZmMwYWNjZDM1LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIyNS9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>5、查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select s_id, s_name, count(c_id) as c_num, sum(score) as total_score</span><br><span class="line">from total</span><br><span class="line">group by s_id ;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy04N2FiNGI5ZTJhMmI2MDJhLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIyMS9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>6、查询”李”姓老师的数量</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(t_name) from teacher</span><br><span class="line">where t_name like &#39;李%&#39;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1kMTcyOWMwNjc0YjIyMWM3LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93Lzk4L2Zvcm1hdC93ZWJw?x-oss-process=image/format,png" alt><br><strong>7、查询学过”张三”老师授课的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select distinct s_id,s_name,s_age,s_sex</span><br><span class="line">from total</span><br><span class="line">where t_name&#x3D;&#39;张三&#39;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1jNmNkNDYxMDFjNWFjMTU5LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIxOC9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt></p>
-<p><strong>8、查询没学过”张三”老师授课的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from student</span><br><span class="line">where s_id not in</span><br><span class="line">(select distinct s_id</span><br><span class="line">from total</span><br><span class="line">where t_name&#x3D;&#39;张三&#39;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODMxNzIxMy1hMzJiOGMwY2UwYWE0NDRlLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwfGltYWdlVmlldzIvMi93LzIyMS9mb3JtYXQvd2VicA?x-oss-process=image/format,png" alt><br><strong>9、查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from student</span><br><span class="line">where s_id in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;01&#39;)</span><br><span class="line">and s_id in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;02&#39;);</span><br></pre></td></tr></table></figure>
-<p><strong>10、查询学过编号为”01”但是没有学过编号为”02”的课程的同学的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select * from student</span><br><span class="line">where s_id in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;01&#39;)</span><br><span class="line">and s_id not in</span><br><span class="line">(select s_id from score where c_id&#x3D;&#39;02&#39;);</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/11/SQL%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
