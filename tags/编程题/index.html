@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dzhebut.github.io">
-  <title>CPU缓存 | Hexo</title>
+  <title>Tag: 编程题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CPU缓存">
-<meta property="og:url" content="https://dzhebut.github.io/2020/09/09/CPU%E7%BC%93%E5%AD%98/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://dzhebut.github.io/tags/%E7%BC%96%E7%A8%8B%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-09T02:09:50.000Z">
-<meta property="article:modified_time" content="2020-09-09T02:37:10.597Z">
 <meta property="article:author" content="Joey Du">
-<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -157,211 +152,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CPU缓存" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      CPU缓存
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-09-10T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
     </h1>
   
 
-        
-        <a href="/2020/09/09/CPU%E7%BC%93%E5%AD%98/" class="archive-article-date">
-  	<time datetime="2020-09-09T02:09:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>CPU缓存</strong>（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。高速缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可先缓存中调用，从而加快读取速度。<br>CPU缓存的容量比内存小的多但是交换速度却比内存要快得多。缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。　 </p>
-<p>缓存大小是CPU的重要指标之一，而且缓存的结构和大小对CPU速度的影响非常大，CPU内缓存的运行频率极高，一般是和处理器同频运作，工作效率远远大于系统内存和硬盘。实际工作时，CPU往往需要重复读取同样的数据块，而缓存容量的增大，可以大幅度提升CPU内部读取数据的命中率，而不用再到内存或者硬盘上寻找，以此提高系统性能。但是从CPU芯片面积和成本的因素来考虑，缓存都很小。</p>
-<p>按照数据读取顺序和与CPU结合的紧密程度，CPU缓存可以分为一级缓存，二级缓存，部分高端CPU还具有三级缓存，每一级缓存中所储存的全部数据都是下一级缓存的一部分，这三种缓存的技术难度和制造成本是相对递减的，所以其容量也是相对递增的。当CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找。一般来说，每级缓存的命中率大概都在80%左右，也就是说全部数据量的80%都可以在一级缓存中找到，只剩下20%的总数据量才需要从二级缓存、三级缓存或内存中读取，由此可见一级缓存是整个CPU缓存架构中最为重要的部分。<br><strong>一级缓存、二级缓存、三级缓存区别是什么</strong><br>一级缓存、二级缓存、三级缓存是什么？作用？区别？ 首先简单了解一下一级缓存。目前所有主流处理器大都具有一级缓存和二级缓存，少数高端处理器还集成了三级缓存。其中，一级缓存可分为一级指令缓存和一级数据缓存。一级指令缓存用于暂时存储并向CPU递送各类运算指令；一级数据缓存用于暂时存储并向CPU递送运算所需数据，这就是一级缓存的作用。 那么，二级缓存的作用又是什么呢？简单地说，二级缓存就是一级缓存的缓冲器：一级缓存制造成本很高因此它的容量有限，二级缓存的作用就是存储那些CPU处理时需要用到、一级缓存又无法存储的数据。同样道理，三级缓存和内存可以看作是二级缓存的缓冲器，它们的容量递增，但单位制造成本却递减。</p>
-<p>　　需要注意的是，无论是二级缓存、三级缓存还是内存都不能存储处理器操作的原始指令，这些指令只能存储在CPU的一级指令缓存中，而余下的二级缓存、三级缓存和内存仅用于存储CPU所需数据。 根据工作原理的不同，目前主流处理器所采用的一级数据缓存又可以分为实数据读写缓存和数据代码指令追踪缓存2种，它们分别被AMD和Intel所采用。不同的一级数据缓存设计对于二级缓存容量的需求也各不相同，下面让我们简单了解一下这两种一级数据缓存设计的不同之处。</p>
-<p>　　一、AMD一级数据缓存设计 AMD采用的一级缓存设计属于传统的“实数据读写缓存”设计。基于该架构的一级数据缓存主要用于存储CPU最先读取的数据；而更多的读取数据则分别存储在二级缓存和系统内存当中。做个简单的假设，假如处理器需要读取“AMD ATHLON 64 3000+ IS GOOD”这一串数据（不记空格），那么首先要被读取的“AMDATHL”将被存储在一级数据缓存中，而余下的“ON643000+ISGOOD”则被分别存储在二级缓存和系统内存当中（如下图所示）。 需要注意的是，以上假设只是对AMD处理器一级数据缓存的一个抽象描述，一级数据缓存和二级缓存所能存储的数据长度完全由缓存容量的大小决定，而绝非以上假设中的几个字节。“实数据读写缓存”的优点是数据读取直接快速，但这也需要一级数据缓存具有一定的容量，增加了处理器的制造难度（一级数据缓存的单位制造成本较二级缓存高）。</p>
-<p>　　二、Intel一级数据缓存设计 自P4时代开始，Intel开始采用全新的“数据代码指令追踪缓存”设计。基于这种架构的一级数据缓存不再存储实际的数据，而是存储这些数据在二级缓存中的指令代码（即数据在二级缓存中存储的起始地址）。假设处理器需要读取“INTEL P4 IS GOOD”这一串数据（不记空格），那么所有数据将被存储在二级缓存中，而一级数据代码指令追踪缓存需要存储的仅仅是上述数据的起始地址。</p>
-<p>　　由于一级数据缓存不再存储实际数据，因此“数据代码指令追踪缓存”设计能够极大地降CPU对一级数据缓存容量的要求，降低处理器的生产难度。但这种设计的弊端在于数据读取效率较“实数据读写缓存设计”低，而且对二级缓存容量的依赖性非常大。 在了解了一级缓存、二级缓存的大致作用及其分类以后，下面我们来回答以下硬件一菜鸟网友提出的问题。</p>
-<p>　　从理论上讲，二级缓存越大处理器的性能越好，但这并不是说二级缓存容量加倍就能够处理器带来成倍的性能增长。目前CPU处理的绝大部分数据的大小都在0-256KB之间，小部分数据的大小在256KB-512KB之间，只有极少数数据的大小超过512KB。所以只要处理器可用的一级、二级缓存容量达到256KB以上，那就能够应付正常的应用；512KB容量的二级缓存已经足够满足绝大多数应用的需求。 这其中，对于采用“实数据读写缓存”设计的AMD Athlon 64、Sempron处理器而言，由于它们已经具备了64KB一级指令缓存和64KB一级数据缓存，只要处理器的二级缓存容量大于等于128KB就能够存储足够的数据和指令，因此它们对二级缓存的依赖性并不大。这就是为什么主频同为1.8GHz的Socket 754 Sempron 3000+（128KB二级缓存）、Sempron 3100+（256KB二级缓存）以及Athlon 64 2800+（512KB二级缓存）在大多数评测中性能非常接近的主要原因。所以对于普通用户而言754 Sempron 2600+是值得考虑的。 反观Intel目前主推的P4、赛扬系列处理器，它们都采用了“数据代码指令追踪缓存”架构，其中Prescott内核的一级缓存中只包含了12KB一级指令缓存和16KB一级数据缓存，而Northwood内核更是只有12KB一级指令缓存和8KB一级数据缓存。</p>
-<p>　　因此，P4、赛隆系列处理器非常依赖于二级缓存，赛扬D 320（256KB二级缓存）和赛扬2.4GHz（128kb二级缓存）的性能差距是很好的证明；Cayon D和P4E处理器之间的性能差距也非常明显。最后，如果你是一个狂热的游戏爱好者或者一个专业的多媒体用户，一个带有1MB二级缓存的P4处理器和一个512Kb/1MB二级缓存的Athon 64处理器是你的理想选择。由于CPU的主存和二级缓存在重计算负载下几乎是“满”的，大的二级缓存可以为处理器提供大约5%到10%的性能改进，这对于要求苛刻的用户是绝对必要的。一级缓存是在CPU内的，用来存放内部指令，2级缓存和CPU封装在一起，也是用来存放指令数据的，三级和四级缓存只在高端的服务器CPU里有，作用差不多，速度更快，更稳定，更有效 并不是缓存越大越好，譬如AMD和INTER就有不同的理论，AMD认为一级缓存越大越好，所以一级比较大，而INTER认为过大会有更长的指令执行时间，所以一级很小，二级缓存那两个公司的理论又反过来了，AMD的小，INTER的大，一般主流的INTERCPU的2级缓存都在2M左右 我们通常用（L1，L2）来称呼缓存又叫高速缓冲存储器其作用在于缓解主存速度慢、跟不上CPU读写速度要求的矛盾。它的实现原理，是把CPU最近最可能用到的少量信息（数据或指令）从主存复制到CACHE中，当CPU下次再用这些信息时，它就不必访问慢速的主存，而直接从快速的CACHE中得到，从而提高了得到这些信息的速度，使CPU有更高的运行效率。<br>  <strong>缓存的大小</strong><br>  一般说来，更大一点的cache容量，对提高命中率是有好处的，如图4.20所示，由于cache 是用价格很高的静态存储器SRAM器件实现的，而cache容量达到一定大小这后，再增加其容量，对命中率的提高并不明显，从合理的性能／价格比考虑，cache的容量设置应在一个合理的容量范围之内。缓存要分一级二级 三级，是为了建立一个层次存储结构，以达到最高性价比。而且多级组织还可以提高cache的命中率，提高执行效能。</p>
-<p>　　CPU缓存（Cache Memory）是位于CPU与内存之间的临时存储器，它的容量比内存小的多但是交换速度却比内存要快得多。缓存的出现主要是为了解决CPU运算速度与内存读写速度不匹配的矛盾，因为CPU运算速度要比内存读写速度快很多，这样会使CPU花费很长时间等待数据到来或把数据写入内存。在缓存中的数据是内存中的一小部分，但这一小部分是短时间内CPU即将访问的，当CPU调用大量数据时，就可避开内存直接从缓存中调用，从而加快读取速度。由此可见，在CPU中加入缓存是一种高效的解决方案，这样整个内存储器（缓存+内存）就变成了既有缓存的高速度，又有内存的大容量的存储系统了。缓存对CPU的性能影响很大，主要是因为CPU的数据交换顺序和CPU与缓存间的带宽引起的。 缓存的工作原理是当CPU要读取一个数据时，首先从缓存中查找，如果找到就立即读取并送给CPU处理；如果没有找到，就用相对慢的速度从内存中读取并送给CPU处理，同时把这个数据所在的数据块调入缓存中，可以使得以后对整块数据的读取都从缓存中进行，不必再调用内存。 正是这样的读取机制使CPU读取缓存的命中率非常高（大多数CPU可达90%左右），也就是说CPU下一次要读取的数据90%都在缓存中，只有大约10%需要从内存读取。</p>
-<p>　　这大大节省了CPU直接读取内存的时间，也使CPU读取数据时基本无需等待。总的来说，CPU读取数据的顺序是先缓存后内存。 目前缓存基本上都是采用SRAM存储器，SRAM是英文Static RAM的缩写，它是一种具有静志存取功能的存储器，不需要刷新电路即能保存它内部存储的数据。不像DRAM内存那样需要刷新电路，每隔一段时间，固定要对DRAM刷新充电一次，否则内部的数据即会消失，因此SRAM具有较高的性能，但是SRAM也有它的缺点，即它的集成度较低，相同容量的DRAM内存可以设计为较小的体积，但是SRAM却需要很大的体积，这也是目前不能将缓存容量做得太大的重要原因。</p>
-<p>　　它的特点归纳如下：优点是节能、速度快、不必配合内存刷新电路、可提高整体的工作效率，缺点是集成度低、相同的容量体积较大、而且价格较高，只能少量用于关键性系统以提高效率。 按照数据读取顺序和与CPU结合的紧密程度，CPU缓存可以分为一级缓存，二级缓存，部分高端CPU还具有三级缓存，每一级缓存中所储存的全部数据都是下一级缓存的一部分，这三种缓存的技术难度和制造成本是相对递减的，所以其容量也是相对递增的。当CPU要读取一个数据时，首先从一级缓存中查找，如果没有找到再从二级缓存中查找，如果还是没有就从三级缓存或内存中查找。一般来说，每级缓存的命中率大概都在80%左右，也就是说全部数据量的80%都可以在一级缓存中找到，只剩下20%的总数据量才需要从二级缓存、三级缓存或内存中读取，由此可见一级缓存是整个CPU缓存架构中最为重要的部分。 </p>
-<p>　　一级缓存（Level 1 Cache）简称L1 Cache，位于CPU内核的旁边，是与CPU结合最为紧密的CPU缓存，也是历史上最早出现的CPU缓存。由于一级缓存的技术难度和制造成本最高，提高容量所带来的技术难度增加和成本增加非常大，所带来的性能提升却不明显，性价比很低，而且现有的一级缓存的命中率已经很高，所以一级缓存是所有缓存中容量最小的，比二级缓存要小得多。一般来说，一级缓存可以分为一级数据缓存（Data Cache，D-Cache）和一级指令缓存（Instruction Cache，I-Cache）。二者分别用来存放数据以及对执行这些数据的指令进行即时解码，而且两者可以同时被CPU访问，减少了争用Cache所造成的冲突，提高了处理器效能。目前大多数CPU的一级数据缓存和一级指令缓存具有相同的容量，例如AMD的Athlon XP就具有64KB的一级数据缓存和64KB的一级指令缓存，其一级缓存就以64KB+64KB来表示，其余的CPU的一级缓存表示方法以此类推。</p>
-<p>　　 Intel的采用NetBurst架构的CPU（最典型的就是Pentium 4）的一级缓存有点特殊，使用了新增加的一种一级追踪缓存（Execution Trace Cache，T-Cache或ETC）来替代一级指令缓存，容量为12KμOps，表示能存储12K条即12000条解码后的微指令。一级追踪缓存与一级指令缓存的运行机制是不相同的，一级指令缓存只是对指令作即时的解码而并不会储存这些指令，而一级追踪缓存同样会将一些指令作解码，这些指令称为微指令（micro-ops），而这些微指令能储存在一级追踪缓存之内，无需每一次都作出解码的程序，因此一级追踪缓存能有效地增加在高工作频率下对指令的解码能力，而μOps就是micro-ops，也就是微型操作的意思。它以很高的速度将μops提供给处理器核心。Intel NetBurst微型架构使用执行跟踪缓存，将解码器从执行循环中分离出来。</p>
-<p>　　这个跟踪缓存以很高的带宽将uops提供给核心，从本质上适于充分利用软件中的指令级并行机制。Intel并没有公布一级追踪缓存的实际容量，只知道一级追踪缓存能储存12000条微指令（micro-ops）。所以，我们不能简单地用微指令的数目来比较指令缓存的大小。实际上，单核心的NetBurst架构CPU使用8Kμops的缓存已经基本上够用了，多出的4kμops可以大大提高缓存命中率。而如果要使用超线程技术的话，12KμOps就会有些不够用，这就是为什么有时候Intel处理器在使用超线程技术时会导致性能下降的重要原因。</p>
-<p>　　 例如Northwood核心的一级缓存为8KB+12KμOps，就表示其一级数据缓存为8KB，一级追踪缓存为12KμOps；而Prescott核心的一级缓存为16KB+12KμOps，就表示其一级数据缓存为16KB，一级追踪缓存为12KμOps。在这里12KμOps绝对不等于12KB，单位都不同，一个是μOps，一个是Byte（字节），而且二者的运行机制完全不同。所以那些把Intel的CPU一级缓存简单相加，例如把Northwood核心说成是20KB一级缓存，把Prescott核心说成是28KB一级缓存，并且据此认为Intel处理器的一级缓存容量远远低于AMD处理器128KB的一级缓存容量的看法是完全错误的，二者不具有可比性。在架构有一定区别的CPU对比中，很多缓存已经难以找到对应的东西，即使类似名称的缓存在设计思路和功能定义上也有区别了，此时不能用简单的算术加法来进行对比；而在架构极为近似的CPU对比中，分别对比各种功能缓存大小才有一定的意义。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/imag/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/imag/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://dzhebut.github.io/2020/09/09/CPU%E7%BC%93%E5%AD%98/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          反转链表
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/09/08/%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E3%80%81%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80%E3%80%81%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">物理地址、逻辑地址、虚拟内存</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="CPU缓存" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cysX3aGWt",
-        conf: "prod_1dcda447175aada96edcdb7e412338fa"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -384,9 +228,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

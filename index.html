@@ -154,6 +154,79 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-反转链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-09-10T04:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ReverseListSolution</span> </span>&#123;</span><br><span class="line">    public <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">        int val;</span><br><span class="line">        ListNode next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        ListNode(int val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ListNode ReverseList(ListNode head) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//head为当前节点，如果当前节点为空的话，那就什么也不做，直接返回null；</span></span><br><span class="line">        ListNode pre = <span class="literal">null</span>;</span><br><span class="line">        ListNode next = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//当前节点是head，pre为当前节点的前一节点，next为当前节点的下一节点</span></span><br><span class="line">        <span class="comment">//需要pre和next的目的是让当前节点从pre-&gt;head-&gt;next1-&gt;next2变成pre&lt;-head next1-&gt;next2</span></span><br><span class="line">        <span class="comment">//即pre让节点可以反转所指方向，但反转之后如果不用next节点保存next1节点的话，此单链表就此断开了</span></span><br><span class="line">        <span class="comment">//所以需要用到pre和next两个节点</span></span><br><span class="line">        <span class="comment">//1-&gt;2-&gt;3-&gt;4-&gt;5</span></span><br><span class="line">        <span class="comment">//1&lt;-2&lt;-3 4-&gt;5</span></span><br><span class="line">        <span class="keyword">while</span>(head!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//做循环，如果当前节点不为空的话，始终执行此循环，此循环的目的就是让当前节点从指向next到指向pre</span></span><br><span class="line">            <span class="comment">//如此就可以做到反转链表的效果</span></span><br><span class="line">            <span class="comment">//先用next保存head的下一个节点的信息，保证单链表不会因为失去head节点的原next节点而就此断裂</span></span><br><span class="line">            next = head.next;</span><br><span class="line">            <span class="comment">//保存完next，就可以让head从指向next变成指向pre了，代码如下</span></span><br><span class="line">            head.next = pre;</span><br><span class="line">            <span class="comment">//head指向pre后，就继续依次反转下一个节点</span></span><br><span class="line">            <span class="comment">//让pre，head，next依次向后移动一个节点，继续下一次的指针反转</span></span><br><span class="line">            pre = head;</span><br><span class="line">            head = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果head为null的时候，pre就为最后一个节点了，但是链表已经反转完毕，pre就是反转后链表的第一个节点</span></span><br><span class="line">        <span class="comment">//直接输出pre就是我们想要得到的反转后的链表</span></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/10/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CPU缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -892,84 +965,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-深入理解JVM内存分配原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99/">深入理解JVM内存分配原则</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99/" class="archive-article-date">
-  	<time datetime="2020-07-10T02:03:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、大多数情况下，<strong>对象在新生代Eden区中分配</strong>。当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC</p>
-<p>2、<strong>大对象直接进入老年代</strong>。大对象指需要大量连续内存空间的Java对象，最典型的大对象就是那种很长的字符串以及数组。</p>
-<p>3、<strong>长期存活的对象将进入老年代。</strong><br>虚拟机采用分代收集的思想来管理内存，那么内存回收时就必须能识别哪些对象应放在新生代，哪些对象应放在老年代中。为了做到这一点，虚拟机给那个对象定义了一个对象年龄计数器。如果对象在Eden出生并经过第一次Minor GC后仍然存活，并且能背Survivor容纳的话，将被移动到Survivor空间中，并且对象年龄设为1。对象在Survivor区中每熬过一次Minor GC，年龄就增加1岁，当他的年龄增加到一定程度（默认为15岁），就将会被晋升到老年代中。对象晋升老年代的年龄阈值，可以通过参数 －XX：MaxTenuringThreshold设置。</p>
-<p>4、<strong>动态对象年龄判定</strong>。为了能更好地适应不同程序的内存状况，虚拟机并不是永远的要求对象的年龄必须达到了MaxTenuringThreshold才能晋升到老年代，如果在Survivor空间中相同年龄所有对象大小总和大雨Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代。</p>
-<p>5、<strong>空间分配担保</strong>。<br>在发生Minor GC之前，虚拟机会先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，如果这个条件成立，那么Minor GC可以确保是安全的。如果不成立，则虚拟机会查看HandlePromotionFailure设置值是否允许担保失败。如果允许，那么会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小，如果大于，将尝试着进行一次Minor GC，尽管这次Minor GC是有风险的；如果小于或者HandlePromotionFailuer设置不允许冒险，那这时也要改为进行一次Full GC。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1100,6 +1095,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编程题</a>
               </li>
             
             <div class="clearfix"></div>
