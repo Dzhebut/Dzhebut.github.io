@@ -154,6 +154,85 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/24/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/24/Java%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-09-24T05:37:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>六个原则（面向对象、设计模式）</strong><br>单一原则，开闭原则，里氏替换原则，依赖倒置原则，接口隔离原则，迪米特法则</p>
+<p><strong>Java 基本数据类型</strong><br>byte：1 个字节，8 位 （-2^7–2^7-1） -128–127<br>short：2 个字节，16 位 （-2^15–2^15-1） -32768—32767<br>int：4 个字节，32 位 （-2^31–2^31-1） -2,147,483,648–2,147,483,647<br>long：8 个字节，64 位 （-2^63–2^63-1）<br>float：4 个字节，32 位<br>double：8 个字节，64 位<br>char：2 个字节，16 位<br>boolean：官方文档未明确定义，依赖于 JVM 厂商的具体实现。逻辑上理解是占用 1 位，但是实际中会考虑计算机高效存储因素</p>
+<p><strong>JDK、JRE、JVM 三者之间的关系</strong><br>JDK（Java Development Kit）：是 Java 开发工具包，是整个 Java 的核<br>心，包括了 Java 运行环境 JRE、Java 工具和 Java 基础类库。<br>JRE（ Java Runtime Environment）：是 Java 的运行环境，包含 JVM 标<br>准实现及 Java 核心类库。<br>JVM（Java Virtual Machine）：是 Java 虚拟机，是整个 Java 实现跨平台<br>的最核心的部分，能够运行以 Java 语言写作的软件程序。所有的 Java 程序<br>会首先被编译为 .class 的类文件，这种类文件可以在虚拟机上执行。</p>
+<p><strong>重载和重写的区别</strong><br>重载：编译时多态、同一个类中同名的方法具有不同的参数列表（参数类型，参数个数）<br>重写：运行时多态、子类与父类之间、子类重写父类的方法，具有相同的返回类型。<br><strong>面向对象的特征</strong><br>　　封装：封装是保证软件部件具有优良的模块性的基础，封装的目标就是要实现软件部件的“高内聚，低耦合”，防止程序相互以来性带来的变动影响。面向对象的封装就是把描述一个对象的属性和行为的代码封装在一个“模块”中，也就是一个类中，属性用变量定义，行为用方法定义，方法可以直接访问同一个对象中的属性。</p>
+<p>　　继承：在定义和事项一个类的时候，可以再一个已经存在的类的基础之上来进行，把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干个性的内容，或修改原来的方法使之更适合特殊的需要，这就是继承。继承是子类自动共享父类数据和方法的机制，这是类之间的一种关系，提高了软件的可重用性和可扩展性。</p>
+<p>　　多态：多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量到底会只想哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。<br>  <strong>设计模式</strong><br>  单例模式：<br>  1、构造方法私有化，除了自己类中能创建其他地方都不能创建<br>  2、在自己的类中创建一个单实例<br>  3、提供一个方法获取该实例对象<br>  工程模式：<br>  SpringIOC，对象的创建交给一个工厂去创建<br>  代理模式：<br>  SpringAOP使用的动态代理<br>  <strong>Java 中&amp;&amp; 和&amp; 的区别</strong><br>Java 中&amp;&amp;和&amp;都是表示与的逻辑运算符，都表示逻辑运输符 and，当两边的表达式都为 true的时候，整个运算结果才为 true，否则为 false。<br>&amp;&amp;的短路功能，当第一个表达式的值为 false 的时候，则不再计算第二个表达式；&amp;则两个表达式都执行。<br>&amp;可以用作位运算符，当&amp;两边的表达式不是 Boolean 类型的时候，&amp;表示按位操作。<br><strong>Cookie 和 Session 区别</strong><br>cookie 和 session 都是用来跟踪浏览器用户身份的会话方式。<br>(1)cookie 数据存放在客户的浏览器上，session 数据放在服务器上<br>(2) cookie 不是很安全，别人可以分析存放在本地的 COOKIE 并进行 COOKIE 欺骗,如果主要考虑到安全应当使用 session<br>(3) session 会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，如果主要考虑到减轻服务器性能方面，应当使用 COOKIE<br>(4) 单个 cookie 在客户端的限制是 3K，就是说一个站点在客户端存放的 COOKIE 不能超过3K。<br>(5) 所以：将登陆信息等重要信息存放为 SESSION;其他信息如果需要保留，可以放在 COOKIE中。<br> <strong>Java创建对象的四种方式</strong><br>（1）使用 new 创建对象<br>使用 new 关键字创建对象应该是最常见的一种方式，但我们应该知道，使用 new 创建对象会增加耦合度。无论使用什么框架，都要减少 new 的使用以降低耦合度。<br>（2）使用反射的机制创建对象<br>使用 Class 类的 newInstance 方法、使用 Constructor 类的 newInstance 方法<br>（3）采用 clone<br>需要已经有一个分配了内存的源对象，创建新对象时，首先应该分配一个和源对象一样大的内存空间。要调用 clone 方法需要实现 Cloneable 接口，<br>（4）采用序列化机制<br>使用序列化时，要实现实现 Serializable 接口，将一个对象序列化到磁盘上，而采用反序列化可以将磁盘上的对象信息转化到内存中。<br><strong>反射的实现过程和作用分别是什么</strong><br>JAVA 语言编译之后会生成一个.class 文件，反射就是通过字节码文件找到某一个类、类中的方法以及属性等。<br>反射的实现主要借助以下四个类：<br>Class：类的对象<br>Constructor：类的构造方法<br>Field：类中的属性对象。<br>Method：类中的方法对象。<br>作用：反射机制指的是程序在运行时能够获取自身的信息。在 JAVA 中，只要给定类的名字，那么就可以通过反射机制来获取类的所有信息。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/24/Java%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数组中和为S的两个数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -816,79 +895,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-对称二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/23/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">对称二叉树</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/23/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-09-23T10:32:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">isSymmetricalSolution</span> </span>&#123;</span><br><span class="line">    public <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">        int val = <span class="number">0</span>;</span><br><span class="line">        TreeNode left = <span class="literal">null</span>;</span><br><span class="line">        TreeNode right = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        public TreeNode(int val) &#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    boolean isSymmetrical(TreeNode pRoot)</span><br><span class="line">    &#123;    <span class="keyword">if</span> (pRoot == <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> recur(pRoot.left,pRoot.right);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    boolean recur(TreeNode L,TreeNode R)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L==<span class="literal">null</span>&amp;&amp;R==<span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(L==<span class="literal">null</span>||R==<span class="literal">null</span>||L.val!=R.val)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> recur(L.left, R.right) &amp;&amp; recur(L.right, R.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/23/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1023,6 +1029,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">编程题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
             <div class="clearfix"></div>
